@@ -15,7 +15,7 @@ form .container{
 }
 
 
-.formdiv{
+#formdiv{
     margin-top:0px;
     border: 1px solid black;
     border-radius: 15px;
@@ -35,9 +35,8 @@ form .container{
 }
 
 input{
-    border: 1px solid black;
+    height: 30px;
 }
-
 label{
     font-size:20px;
 }

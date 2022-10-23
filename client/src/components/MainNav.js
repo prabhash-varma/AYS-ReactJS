@@ -6,7 +6,7 @@ import './css/MainNav.css';
 function MainNav() {
   return (
     <div className="mainnav">
-      <nav className="navbar navbar-expand-lg bg-light">
+      <nav className="navbar navbar-expand-lg" id="navbar-expand-lg">
         <div className="container-fluid">
           <a className="navbar-brand">
             <Link to="/"><img style={{width:"100px",height:"45px","margin-left":"70px"}} src={aysimage} alt="#" /></Link>
