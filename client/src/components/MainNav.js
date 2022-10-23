@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import aysimage from './Images/ays.jpg';
-
+import './css/MainNav.css';
 
 function MainNav() {
   return (
-    <div>
+    <div className="mainnav">
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
           <a className="navbar-brand">
-           <img style={{width:"100px",height:"45px","margin-left":"70px"}} src={aysimage} alt="#" />
+            <Link to="/"><img style={{width:"100px",height:"45px","margin-left":"70px"}} src={aysimage} alt="#" /></Link>
+           
           </a>
           <button
             className="navbar-toggler"
@@ -23,7 +24,7 @@ function MainNav() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul style={{"margin-right":"70px"}} className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link className="nav-link active" to="/register" >
                   <u>Register as Professional</u>

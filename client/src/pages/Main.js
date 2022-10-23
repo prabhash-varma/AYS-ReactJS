@@ -6,11 +6,12 @@ import HomeCleaning from './Images/home_cleaning.svg'
 import Appliance from './Images/appliance.svg'
 import PackersAndMovers from './Images/packers_movers.svg'
 import Salon from './Images/salon.svg'
-
+import Footer from '../components/Footer'
 
 function Main() {
   return (
     <div>
+
       <MainNav/>
       <img id="MainImage" src={MainImage} alt="MainImage" />
       <h1 style={{"margin-top":"65px"}}>Our Services</h1>
@@ -38,6 +39,10 @@ function Main() {
         
         
       </div>
+
+
+
+      <Footer/>
     </div>
   )
 }

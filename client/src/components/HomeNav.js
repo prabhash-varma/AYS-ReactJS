@@ -16,15 +16,15 @@ const HomeNav = () => {
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent" style={{"font-size":"18px","margin-right":"30px"}}>
-      <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+      <ul style={{"margin-right":"35px"}} className="navbar-nav ms-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page"><Link to="/ays/home">Home</Link></a>
+         <Link to="/ays/home"> <a className="nav-link active" aria-current="page">Home</a></Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#"><Link to="/ays/about">About</Link></a>
+          <Link to="/ays/about"><a className="nav-link active" aria-current="page" href="#">About</a></Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#"><Link to="/ays/contactus">ContactUs</Link></a>
+          <Link to="/ays/contactus"><a className="nav-link active" aria-current="page" href="#">ContactUs</a></Link>
         </li>
         
         <li className="nav-item dropdown">
@@ -32,10 +32,10 @@ const HomeNav = () => {
             Services
           </a>
           <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="#"><Link to="/ays/services/homecleaning">Home Cleaning</Link></a></li>
-            <li><a className="dropdown-item" href="#"><Link to="/ays/services/appliances">Appliances</Link></a></li>
-            <li><a className="dropdown-item" href="#"><Link to="/ays/services/packersandmovers">PackersAndMovers</Link></a></li>
-            <li><a className="dropdown-item" href="#"><Link to="/ays/services/salon">Salon</Link></a></li>
+            <Link to="/ays/services/homecleaning"><li><a className="dropdown-item" href="#">Home Cleaning</a></li></Link>
+            <Link to="/ays/services/appliances"><li><a className="dropdown-item" href="#">Appliances</a></li></Link>
+            <Link to="/ays/services/packersandmovers"><li><a className="dropdown-item" href="#">PackersAndMovers</a></li></Link>
+            <Link to="/ays/services/salon"><li><a className="dropdown-item" href="#">Salon</a></li></Link>
           </ul>
         </li>
 
@@ -44,12 +44,12 @@ const HomeNav = () => {
             Account
           </a>
           <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="#"><Link to="/ays/profile">Profile</Link></a></li>
-            <li><a className="dropdown-item" href="#"><Link to="/ays/cart">My Cart</Link></a></li>
-            <li><a className="dropdown-item" href="#"><Link to="/ays/orders">Orders</Link></a></li>
+            <Link to="/ays/profile"><li><a className="dropdown-item" href="#">Profile</a></li></Link>
+            <Link to="/ays/cart"><li><a className="dropdown-item" href="#">My Cart</a></li></Link>
+            <Link to="/ays/orders"><li><a className="dropdown-item" href="#">Orders</a></li></Link>
             <li><hr class="dropdown-divider"/></li>
-            <li><a class="dropdown-item" href="#"><Link to="/ays/settings">Settings</Link></a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+            <Link to="/ays/settings"><li><a class="dropdown-item" href="#">Settings</a></li></Link>
+            <Link to="/"><li><a class="dropdown-item" href="#">Logout</a></li></Link>
 
 
           </ul>
