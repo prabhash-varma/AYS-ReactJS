@@ -15,6 +15,19 @@ function Login() {
   const [msg,setMsg]=useState("");
   const [pmsg,setPmsg]=useState("");
   const [imsg,setImsg]=useState("");
+ 
+  const [passwordType, setPasswordType] = useState("password");
+  
+  
+  const togglePassword =()=>{
+    if(passwordType==="password")
+    {
+     setPasswordType("text")
+     return;
+    }
+    setPasswordType("password")
+  }
+
 
   const submit = (e)=>{
     e.preventDefault();
@@ -99,8 +112,9 @@ function Login() {
               <label for="exampleInputPassword1" class="form-label">
                 Password
               </label>
-              <input
-                type="password"
+              <div style={{display:"flex",flexDirection:"row"}}>
+             <input
+                type={passwordType}
                 class="form-control"
                 id="exampleInputPassword1"
                 onChange={(e)=>{
@@ -110,6 +124,13 @@ function Login() {
                 }}
 
               />
+               
+            
+             <div  style={{"margin-top":"3px",cursor: "pointer"}} onClick={togglePassword}>
+                { passwordType==="password"? <i className="fa fa-eye-slash" style={{"font-size":"18px"}}></i> :<i className="fa fa-eye" style={{"font-size":"18px"}}></i> }
+              </div>
+              
+            </div>
               <p style={{color:"red"}}>{pmsg}</p>
             </div>
             <div class="mb-3 form-check">
@@ -134,6 +155,15 @@ function Login() {
           </div>
         </form>
         
+        <div style={{marginTop:"20px",display:"flex",flexDirection:"row",justifyContent:"center"} }>
+          <div>
+            <p>Don't have an account? </p>
+          </div>
+          <div>
+          <Link to="/signup"><p id="signup"><u>Sign Up</u></p></Link>
+
+          </div>
+        </div>
       </div>
      
       

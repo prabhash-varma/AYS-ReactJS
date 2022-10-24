@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useContext,createContext,useState} from 'react';
 import './App.css';
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 
@@ -6,7 +6,6 @@ import Main from './pages/Main'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
-
 import Home from './pages/Home'
 import About from './pages/About'
 import Contactus from './pages/Contactus'
@@ -14,19 +13,24 @@ import Salon from './pages/Salon'
 import Appliances from './pages/Appliances'
 import HomeCleaning from './pages/HomeCleaning'
 import PackersAndMovers from './pages/PackersAndMovers'
-
 import Profile from './pages/Profile';
 import Cart from './pages/Cart'
 import Orders from'./pages/Orders'
 import Settings from './pages/Settings'
-
 import PageNotFound from './pages/PageNotFound'
+
+
+export const store=createContext();
 
 
 
 function App() {
+  const [cartItems,setCartItems] =useState([]);
+  const [userdetails,setUserDetails] =useState({});
+
   return (
     <div className="App">
+      <store.Provider value={[cartItems,setCartItems,userdetails,setUserDetails]}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main/>}/>
@@ -49,6 +53,7 @@ function App() {
           
         </Routes>
       </BrowserRouter>
+      </store.Provider>
     </div>
   );
 }

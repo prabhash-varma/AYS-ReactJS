@@ -261,6 +261,14 @@ function Signup() {
           </div>
         </form>
         
+        <div style={{marginTop:"20px",display:"flex",flexDirection:"row",justifyContent:"center"} }>
+          <div>
+            <p>Already have an account?</p>
+          </div>
+          <div>
+          <Link to="/login"><p id="signup"><u>Login</u></p></Link>
+          </div>
+        </div>
       </div>
      
       

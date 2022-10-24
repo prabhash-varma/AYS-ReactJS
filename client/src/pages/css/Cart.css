@@ -1,0 +1,20 @@
+.cart-card{
+    display: flex;
+    width:300px;
+    height:300px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.cart-items{
+    margin:80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 30px;
+    column-gap: 10px;
+    justify-content:space-evenly;
+    align-content: center;
+
+}
