@@ -22,23 +22,27 @@ function Contactus() {
         
 
         <div style={{display: 'flex',flexDirection: 'row', justifyContent:"center",margin:"15px"}}>
-          <h4 style={{"margin-right":"10px"}}><b>Email:</b></h4>
+          
+          <h4 style={{"margin-right":"10px"}}><i style={{marginRight:"10px"}} class="fa fa-envelope" aria-hidden="true"></i><b>Email:</b></h4>
           <h4>info@ays.com</h4>
         </div>
 
         <div style={{display: 'flex',flexDirection: 'row', justifyContent:"center",margin:"15px"}}>
-          <h4 style={{"margin-right":"10px"}}><b>Phone:</b></h4>
+          <h4 style={{"margin-right":"10px"}}><i style={{marginRight:"10px"}} class="fa fa-phone" aria-hidden="true"></i>
+<b>Phone:</b></h4>
           <h4>1-8000-227-301</h4>
         </div>
 
         <div style={{display: 'flex',flexDirection: 'row', justifyContent:"center",margin:"15px"}}>
-          <h4 style={{"margin-right":"10px"}}><b>FAX:</b></h4>
+          <h4 style={{"margin-right":"10px"}}><i style={{marginRight:"10px"}} class="fa fa-fax" aria-hidden="true"></i>
+<b>FAX:</b></h4>
           <h4>1-8000-227-301</h4>
         </div>
 
         
         <div  style={{display: 'flex',flexDirection: 'row', justifyContent:"center",margin:"15px"}}>
-          <h4 style={{"margin-right":"10px"}}><b>Address:</b></h4>
+          <h4 style={{"margin-right":"10px"}}><i style={{marginRight:"10px"}} class="fa-solid fa-location-dot"></i>
+<b>Address:</b></h4>
           <h4>1234, 56th Street, New York, NY 12345</h4>
         </div>
 
@@ -90,7 +94,8 @@ function Contactus() {
               class="btn btn-primary"
               
             >
-              Send
+              Send<i style={{marginLeft:"10px"}}class="fa fa-paper-plane" aria-hidden="true"></i>
+
             </button>
           </div>
         </form>

@@ -26,11 +26,12 @@ export const store=createContext();
 
 function App() {
   const [cartItems,setCartItems] =useState([]);
+  const [orderslist,setOrderslist] =useState([])
   const [userdetails,setUserDetails] =useState({});
 
   return (
     <div className="App">
-      <store.Provider value={[cartItems,setCartItems,userdetails,setUserDetails]}>
+      <store.Provider value={[cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist]}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main/>}/>
