@@ -1,7 +1,7 @@
+//App
 import React,{useContext,createContext,useState} from 'react';
 import './App.css';
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
-
 import Main from './pages/Main'
 import Register from './pages/Register'
 import Login from './pages/Login'
@@ -21,7 +21,6 @@ import PageNotFound from './pages/PageNotFound'
 
 
 export const store=createContext();
-
 
 
 function App() {
