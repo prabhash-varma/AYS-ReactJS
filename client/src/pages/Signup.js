@@ -64,10 +64,9 @@ function Signup() {
     } else {
       Axios.get(`http://localhost:3001/users?email=${email}`).then((res) => {
         if (res.data.length === 0) {
-          var id = Math.floor(Math.random() * 10000000000000);
+         // var id = Math.floor(Math.random() * 10000000000000);
 
           Axios.post(`http://localhost:3001/users`, {
-            id,
             firstName,
             lastName,
             email,
