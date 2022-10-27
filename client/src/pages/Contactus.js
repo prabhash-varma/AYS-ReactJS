@@ -1,7 +1,7 @@
 import React from 'react'
 import HomeNav from '../components/HomeNav.js'
 import './css/Contactus.css'
-
+import Footer from '../components/Footer.js'
 
 function Contactus() {
   return (
@@ -55,10 +55,14 @@ function Contactus() {
         <form>
           <div className="container">
 
-          <div class="mb-3">
+          <div class="mb-3" >
+         
               <label for="exampleInputEmail1" class="form-label">
                 Name
               </label>
+              <div style={{display:"flex"}}>
+              
+              <i class="fa fa-user" style={{fontSize:"20px",marginRight: "6px",marginTop:"3px",color:"black"}} aria-hidden="true"></i> 
               <input
                 type="email"
                 class="form-control"
@@ -66,17 +70,25 @@ function Contactus() {
                 aria-describedby="emailHelp"
               />
              
+              </div>
+              
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">
                 Email address
               </label>
+
+              <div style={{display: 'flex'}}>
+              <i class="fa fa-envelope" style={{fontSize:"20px",marginRight: "6px",marginTop:"3px",color:"black"}} aria-hidden="true"></i>
               <input
                 type="email"
                 class="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
               />
+
+              </div>
+              
              
             </div>
             
@@ -104,6 +116,10 @@ function Contactus() {
       </div>
        </div>
       
+      <br></br>
+      <br></br>
+      <br></br>
+      <Footer/>
     </div>
   )
 }

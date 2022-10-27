@@ -28,7 +28,7 @@ const HomeNav = () => {
         </li>
         
         <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a style={{color:"black"}} className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Services
           </a>
           <ul className="dropdown-menu">
@@ -40,16 +40,36 @@ const HomeNav = () => {
         </li>
 
         <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a style={{color:"black"}} className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Account
           </a>
           <ul className="dropdown-menu">
+            
             <Link to="/ays/profile"><li><a className="dropdown-item" href="#">Profile</a></li></Link>
+        
+
+          
             <Link to="/ays/cart"><li><a className="dropdown-item" href="#">My Cart</a></li></Link>
+        
+
+
+          
             <Link to="/ays/orders"><li><a className="dropdown-item" href="#">Orders</a></li></Link>
+       
+            
+            
+            
             <li><hr class="dropdown-divider"/></li>
-            <Link to="/ays/settings"><li><a class="dropdown-item" href="#">Settings</a></li></Link>
-            <Link to="/"><li><a class="dropdown-item" href="#">Logout</a></li></Link>
+            
+            
+           
+           <Link to="/ays/settings"><li><a class="dropdown-item" href="#">Settings</a></li></Link>
+           
+            
+         
+          <Link to="/"><li><a class="dropdown-item" href="#">Logout</a></li></Link>
+          
+           
 
 
           </ul>

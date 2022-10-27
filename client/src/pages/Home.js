@@ -26,9 +26,10 @@ import Geyser from './Images/geyser.png'
 import Water_purifier from './Images/water_purifier.png'
 import Air_purifier from './Images/air_purifier.png'
 import Footer from '../components/Footer.js'
-
+import {useNavigate} from 'react-router-dom'
 
 function Home() {
+    const navigate=useNavigate();
   return (
     <div>
       <HomeNav/>
@@ -47,7 +48,9 @@ function Home() {
         <img src={HomeCleaning} alt="HomeCleaning" />
         <h3>Home Cleaning</h3>
         </div>
-        <div className="services-name">
+        <div className="services-name" onClick={()=>{
+          navigate('/ays/services/packersandmovers')
+        }}>
         <img src={PackersAndMovers} alt="PackersAndMovers"/>
         <h3>Packers And Movers</h3>
         </div>
