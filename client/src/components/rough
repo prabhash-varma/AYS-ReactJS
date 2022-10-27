@@ -1,13 +1,98 @@
-import React from "react";
+.text{
+    color: black;
+    text-decoration: none;
+    margin-top: 30px;
+}
+/* .photo
+{
+    height: 400px;
+    width: 400px;
+    border-radius: 100px;
+    margin-right: 100px;
+} */
+
+.our-team{
+    padding:20px 15px 30px;
+    background:#fff;
+    text-align:center;
+    }
+    .our-team .pic{
+        display:inline-block;
+        width:100%;
+        height:100%;
+        background:#fff;
+        padding:10px;
+        margin-bottom:25px;
+        transition:all 0.5s ease 0s;
+    }
+    .our-team:hover .pic{
+        background:#17bebb;
+        border-radius:50%;
+    }
+    .pic img{
+        width:100%;
+        height:250px;
+        border-radius:50%;
+    }
+    .title{
+        display:block;
+        font-size:20px;
+        font-weight:600;
+        color: #2e282a;
+        margin: 0 0 7px 0;
+    }
+    .role{
+        display:block;
+        font-size:15px;
+        color: #17bebb;
+        margin-bottom:15px;
+    }
+    .social{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    .social li{
+        display:inline-block;
+        margin-right:5px;
+    }
+    .social li a{
+        display:block;
+        width: 30px;
+        height: 30px;
+        line-height:30px;
+        border-radius:50%;
+        font-size:15px;
+        color: #17bebb;
+        border: 1px solid #17bebb;
+        transition:all 0.5s ease 0s;
+    }
+    .our-team:hover .social li a{
+        background: #17bebb;
+        color: #fff;
+    }
+    @media only screen and (max-width:900px){
+        .our-team{
+            margin-bottom:30px;
+        }
+    }
+
+
+
+
+
+
+    import React from "react";
 import HomeNav from "../components/HomeNav.js";
 import member1 from "./Images/member1.jpeg";
 import member2 from "./Images/member2.jpg";
 import member3 from "./Images/member3.jpg";
 import member4 from "./Images/member4.jpg";
+import member5 from "./Images/member5.jpg";
+
 import "./css/About.css";
 function About() {
   return (
-    // <div style={{"background":"black"}}>
     <div>
       <HomeNav />
       {/* <h1 class="text-center fw-bold">Team AYS</h1>
@@ -29,7 +114,7 @@ function About() {
       <div
         class="container"
         style={{
-          background: "radial-gradient(circle, #638bd6 0%, #353838 100%)",
+          background: "radial-gradient(circle, #638bd6 0%, #17bebb 100%)",
           "padding-top": "80px",
         }}
       >

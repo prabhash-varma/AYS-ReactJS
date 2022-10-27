@@ -39,8 +39,10 @@ function PackersAndMovers() {
 
 
        <div style={{margin:"80px",display: 'flex',flexDirection:"row",justifyContent:"space-evenly"}}>
+       
         <div className="packers-card" >
        <Packers name="House Moving" rating="4.5" size="800k" price="₹ 5000"/>
+      
        <button className="btn btn-primary" onClick={()=>{
           setCartItems([...cartItems,{name:"House Moving",rating:"4.5",size:"800k",price:"₹ 5000"}])
         console.log(cartItems)
@@ -49,6 +51,7 @@ function PackersAndMovers() {
 
  Add to Cart</button>
         </div>
+        
         <div className="packers-card" >
         
         <Packers name="Office Moving" rating="4.5" size="800k" price="₹ 6000"/>

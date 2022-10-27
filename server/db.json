@@ -69,6 +69,15 @@
       "password": "12345",
       "state": "AP",
       "pincode": "123456"
+    },
+    {
+      "id": 7795625348542,
+      "firstName": "siddu",
+      "lastName": "putchala",
+      "email": "sidduputchala@gmail.com",
+      "password": "123456",
+      "state": "andhra",
+      "pincode": "535003"
     }
   ]
 }

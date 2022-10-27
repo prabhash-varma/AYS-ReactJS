@@ -1,0 +1,45 @@
+.salon-card{
+    width:300px;
+    height:310px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border: 1px solid black;
+    border-radius:5px;
+}
+
+.salon-card:hover{
+    cursor: pointer;
+}
+
+.salon-card button:hover{
+    cursor: pointer;
+    background-color:white;
+    color:blue;
+}
+
+.service-salon-img img{
+    border-radius: 10px;
+    width:300px;
+    height:180px;
+    margin-bottom: 10px;
+}
+
+
+.service-salon-img img:hover{
+    width:340px;
+    height:200px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.5s;
+    box-shadow: 1px 4px 6px
+}
+
+
+.service-salon-img:hover{
+    cursor: pointer;
+}
+
+.service-salon-img button:hover{
+    cursor: pointer;
+    background-color:white;
+    color:blue;
+}

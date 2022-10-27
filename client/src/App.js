@@ -9,7 +9,7 @@ import Signup from './pages/Signup'
 import Home from './pages/Home'
 import About from './pages/About'
 import Contactus from './pages/Contactus'
-import Salon from './pages/Salon'
+import SalonAtHome from './pages/SalonAtHome'
 import Appliances from './pages/Appliances'
 import HomeCleaning from './pages/HomeCleaning'
 import PackersAndMovers from './pages/PackersAndMovers'
@@ -40,7 +40,7 @@ function App() {
           <Route path="/ays/home" element={<Home/>}/>
           <Route path="/ays/about" element={<About/>}/>
           <Route path="/ays/contactus" element={<Contactus/>}/>
-          <Route path="/ays/services/salon" element={<Salon/>}/>
+          <Route path="/ays/services/salon" element={<SalonAtHome/>}/>
           <Route path="/ays/services/homecleaning" element={<HomeCleaning/>}/>
           <Route path="/ays/services/packersandmovers" element={<PackersAndMovers/>}/>
           <Route path="/ays/services/appliances" element={<Appliances/>}/>
