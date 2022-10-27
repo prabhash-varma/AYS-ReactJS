@@ -1,5 +1,5 @@
 import React from 'react'
-import MainNav from '../components/MainNav'
+import MainNav1 from '../components/MainNav1'
 import MainImage from './Images/indeximage.jpg'
 import './css/Main.css'
 import HomeCleaning from './Images/home_cleaning.svg'
@@ -26,8 +26,8 @@ import Furniture from './Images/furniture_img.png'
 import Geyser from './Images/geyser.png'
 import Water_purifier from './Images/water_purifier.png'
 import Air_purifier from './Images/air_purifier.png'
-import {useNavigate} from 'react-router-dom'
-
+import {useNavigate,Link} from 'react-router-dom'
+import aysimage from '../components/Images/ays.jpg';
 
 function Main() {
 
@@ -38,7 +38,9 @@ function Main() {
   return (
     <div>
 
-      <MainNav/>
+     
+
+      <MainNav1/>
       <img id="MainImage" src={MainImage} alt="MainImage" />
       <h1 style={{"margin-top":"75px","font-family":"sans-serif"}}>Our Services</h1>
       

@@ -92,6 +92,8 @@ function Login() {
               <label for="exampleInputEmail1" class="form-label">
                 Email address
               </label>
+              <div style={{display:"flex",justifyContent: "center"}}>
+              {/* <i class="fa fa-user" style={{fontSize:"20px",marginRight: "6px",marginTop:"3px",color:"black"}} aria-hidden="true"></i> */}
               <input
                 type="text"
                 class="form-control"
@@ -103,16 +105,23 @@ function Login() {
                   setEmail(e.target.value);
                 }}
               />
+              </div>
+              
               <div id="emailHelp" class="form-text">
                 We'll never share your email with anyone else.
               </div>
               <p style={{color:"red"}}>{msg}</p>
             </div>
+
+
+
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">
                 Password
               </label>
+              
               <div style={{display:"flex",flexDirection:"row"}}>
+              {/* <i class="fas fa-key" style={{fontSize:"20px",marginRight: "6px",marginTop:"3px", color:"black"}} aria-hidden="true"></i> */}
              <input
                 type={passwordType}
                 class="form-control"
