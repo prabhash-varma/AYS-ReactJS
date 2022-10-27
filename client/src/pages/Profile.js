@@ -1,12 +1,14 @@
-import React from 'react'
-import HomeNav from '../components/HomeNav.js'
+import React from "react";
+import HomeNav from "../components/HomeNav.js";
+import ProfileComp from "./ProfileComp.js";
+
 function Profile() {
   return (
     <div>
-       <HomeNav/>
-      <h1>Profile page</h1>
+      <HomeNav />
+      <ProfileComp />
     </div>
-  )
+  );
 }
 
-export default Profile
+export default Profile;
