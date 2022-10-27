@@ -69,6 +69,15 @@
       "password": "12345",
       "state": "AP",
       "pincode": "123456"
+    },
+    {
+      "id": 2113695928867,
+      "firstName": "Saketh",
+      "lastName": "Chamalla",
+      "email": "saketh.ch20@iiits.in",
+      "password": "12345",
+      "state": "Andhra Pradesh",
+      "pincode": "530047"
     }
   ]
 }
