@@ -1,5 +1,13 @@
 {
   "users": [
-   
+    {
+      "id": 9471462215555,
+      "firstName": "siddu",
+      "lastName": "putchala",
+      "email": "siddu@gmail.com",
+      "password": "123456",
+      "state": "andhra pradesh",
+      "pincode": "535003"
+    }
   ]
 }
