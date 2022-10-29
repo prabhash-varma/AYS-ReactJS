@@ -32,10 +32,16 @@ const HomeNav = () => {
             Services
           </a>
           <ul className="dropdown-menu">
-            <Link to="/ays/services/homecleaning"><li><a className="dropdown-item" href="#">Home Cleaning</a></li></Link>
             <Link to="/ays/services/appliances"><li><a className="dropdown-item" href="#">Appliances</a></li></Link>
-            <Link to="/ays/services/packersandmovers"><li><a className="dropdown-item" href="#">PackersAndMovers</a></li></Link>
+            <Link to="/ays/services/construction"><li><a className="dropdown-item" href="#">Construction</a></li></Link>
+            <Link to="/ays/services/homecleaning"><li><a className="dropdown-item" href="#">Home Cleaning</a></li></Link>
             <Link to="/ays/services/salon"><li><a className="dropdown-item" href="#">Salon</a></li></Link>
+
+
+            <Link to="/ays/services/packersandmovers"><li><a className="dropdown-item" href="#">Packers And Movers</a></li></Link>
+            <Link to="/ays/services/painting"><li><a className="dropdown-item" href="#">Painting</a></li></Link>
+            <Link to="/ays/services/pestcontrol"><li><a className="dropdown-item" href="#">Pest Control</a></li></Link>
+            <Link to="/ays/services/plumbing"><li><a className="dropdown-item" href="#">Plumbing</a></li></Link>
           </ul>
         </li>
 

@@ -1,15 +1,17 @@
-import React,{useState} from "react";
+import React,{useState,useContext} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./css/Login.css";
 import Builder from "./Images/builder.png";
 import MainNav from "../components/MainNav";
 import Axios from 'axios'
-
+import {store} from '../App.js'
 
 
 function Login() {
   const navigate = useNavigate();
 
+  const [cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist]=useContext(store);
+  
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");
   const [msg,setMsg]=useState("");
@@ -56,6 +58,7 @@ function Login() {
         console.log(res.data);
         
         if(res.data.length>0){
+          setUserDetails(res.data[0]);
           alert("Login successful!");
           navigate('/ays/home');
         }
@@ -72,10 +75,10 @@ function Login() {
   return (
 
 
-    <>
+    <div >
 
     <MainNav/>
-    <div className="login">
+    <div className="login" >
       <div>
 
           <img style={{width:"500px",height:"700px"}} src={Builder} alt="logo" />
@@ -179,7 +182,7 @@ function Login() {
     </div>
 
 
-    </>
+    </div>
   );
 }
 

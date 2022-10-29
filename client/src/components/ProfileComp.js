@@ -1,7 +1,7 @@
 import React from "react";
-import "./css/Profile.css";
+import "../pages/css/Profile.css";
 
-function ProfileComp() {
+function ProfileComp(props) {
   return (
     <div style={{ paddingTop: "3em" }}>
       <div className="container">
@@ -17,8 +17,8 @@ function ProfileComp() {
                      
                       />
                     </div>
-                    <h5 id="user-name" className="user-name">Yuki Hayashi</h5>
-                    <h6 id="user-email" className="user-email">yuki@Maxwell.com</h6>
+                    <h5 id="user-name" className="user-name">{props.firstName}</h5>
+                    <h6 id="user-email" className="user-email">{props.email}</h6>
                   </div>
                   <div id="about" className="about">
                     <h5 id="h5">About</h5>
@@ -41,8 +41,10 @@ function ProfileComp() {
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
                       <label htmlFor="fullName">First Name</label>
+                      
                       <input
                         type="text" 
+                        value={props.firstName}
                         className="form-control" style={{marginBottom:"1em"}}
                         id="fullName"
                         placeholder="First name"
@@ -54,6 +56,7 @@ function ProfileComp() {
                       <label htmlFor="website">Last Name</label>
                       <input
                         type="url"
+                        value={props.lastName}
                         className="form-control" style={{marginBottom:"1em"}}
                         id="website"
                         placeholder="Last Name"
@@ -65,6 +68,7 @@ function ProfileComp() {
                       <label htmlFor="eMail">Email</label>
                       <input
                         type="email"
+                        value={props.email}
                         className="form-control" style={{marginBottom:"1em"}}
                         id="eMail"
                         placeholder="Email ID"
@@ -76,6 +80,7 @@ function ProfileComp() {
                       <label htmlFor="phone">Phone</label>
                       <input
                         type="text"
+                        value={props.phone}
                         className="form-control" style={{marginBottom:"1em"}}
                         id="phone"
                         placeholder="Phone number"
@@ -90,7 +95,7 @@ function ProfileComp() {
                   </div>
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
-                      <label htmlFor="Street">Street</label>
+                      <label htmlFor="Street">Addresss</label>
                       <input
                         type="name"
                         className="form-control" style={{marginBottom:"1em"}}
@@ -115,6 +120,7 @@ function ProfileComp() {
                       <label htmlFor="sTate">State</label>
                       <input
                         type="text"
+                        value={props.state}
                         className="form-control"
                         id="sTate"
                         placeholder="State"
@@ -126,6 +132,7 @@ function ProfileComp() {
                       <label htmlFor="zIp">Zip Code</label>
                       <input
                         type="text"
+                        value={props.pincode}
                         className="form-control"
                         id="zIp"
                         placeholder="Zip Code"

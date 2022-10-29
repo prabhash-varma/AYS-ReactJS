@@ -71,6 +71,7 @@ function Signup() {
             firstName,
             lastName,
             email,
+            phone,
             password,
             state,
             pincode,

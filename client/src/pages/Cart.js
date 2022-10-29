@@ -1,13 +1,15 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import HomeNav from "../components/HomeNav.js";
 import { store } from "../App.js";
 import CartItem from "../components/CartItem.js";
 import "./css/Cart.css";
 import {useNavigate} from 'react-router-dom'
+import CartAnimation from "./Images/CartAnimation.gif"
 
 
 function Cart() {
 
+  const [sum,setSum]=useState(0);
   const [nameMsg, setNameMsg] = useState("");
   const [emailMsg, setEmailMsg] = useState("");
   const [phoneMsg, setPhoneMsg] = useState("");
@@ -21,7 +23,7 @@ function Cart() {
 
 
 
-  const [orderItems,setOrderItems] =useState({add_name:"",add_email:"",add_phone:"",add_address1:"",add_address2:"",add_state:"",add_pincode:"",add_date:"",add_orderItems:[]});
+  const [orderItems,setOrderItems] =useState({add_name:"",add_email:"",add_phone:"",add_address1:"",add_address2:"",add_state:"",add_pincode:"",add_date:"",add_orderItems:[],add_total:0});
  
   const navigate = useNavigate();
   const handleInputs = (e) => {
@@ -90,12 +92,29 @@ function Cart() {
   }
 
 
+  useEffect(()=>{
+      cartItems.forEach((item)=>{
+       let i= item.price.replace("₹ ","");
+      console.log(i);
+      setSum(prevsum=>{
+        return prevsum+parseInt(i);
+      })
+        
+      }
+      )
+      setOrderItems(previtem=>{
+        return {...previtem,add_total:sum}
+        }
+      )
+  },[cartItems])
+
 
 
   return (
     <div>
       <HomeNav />
-      <div className="cart-header" style={{ display: "flex" }}>
+      <div className="cart-header" style={{ display: "flex",flexDirection: "row",justifyContent: "space-between",width:"600px"}}>
+        <div>
         <h1 style={{ "margin-top": "60px", marginLeft: "50px" }}>
           <i
             style={{ marginRight: "20px" }}
@@ -103,6 +122,10 @@ function Cart() {
           ></i>
           Cart Items
         </h1>
+        </div>
+        {/* <div>
+          <img src={CartAnimation} style={{marginTop:"40px",height:"100px",width:"100px"}}/>
+        </div> */}
       </div>
       <hr style={{ width: "900px", height: "2px" }}></hr>
 
@@ -112,11 +135,15 @@ function Cart() {
           <h1>Cart is empty</h1>
         </div>
         ) : (
+
+
       <div className="cart-items">
+
         {cartItems.map((item,key) => {
           return (
             <div className="cart-card" key={key}>
               <CartItem
+                img={item.img}
                 name={item.name}
                 rating={item.rating}
                 size={item.size}
@@ -127,6 +154,7 @@ function Cart() {
                 className="btn btn-danger"
                 onClick={() => {
                   setCartItems(cartItems.filter((i,id) => id !== key));
+                  setSum(0)
                   // alert("Removed from Cart!")
                 }}
               >
@@ -325,27 +353,41 @@ function Cart() {
 
 
 
-                <div style={{ "margin-left": "10px" }} class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">
-                    <b>Payment Mode</b>
-                  </label>
-                  <input
-                    type="text"
-                    name="payment"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    disable={true}
-                    value={"Cash On Delivery"}
-                    onChange={(e)=>{
-                      // setPincodeMsg("");
-                      // handleInputs(e)
-                    }}
-                  />
-                 
-                </div>
+                
               </div>
 
+              <hr style={{ width: "400px", height: "2px" }}></hr>
+
+              <div>
+              <label for="exampleInputEmail1" class="form-label">
+                    <h3>Total Bill</h3>
+                </label>
+                <p style={{ fontSize: "30px" }}>₹ {sum}</p>
+              </div>
+
+                
+              <hr style={{ width: "400px", height: "2px" }}></hr>
+              <div style={{ "margin-left": "10px" }} class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">
+                    <h3>Payment Mode</h3>
+                  </label>
+
+                  <div style={{ display: "flex", justifyContent: "center" }}>
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="COD"
+                    checked={true}
+                    style={{marginRight: "10px"}}
+                
+                  />
+                  
+                  <label for="exampleInputEmail1" class="form-label
+                  ">
+                    <p style={{fontSize: "18px"}}>Cash On Delivery</p>
+                  </label>
+                 </div>
+                </div>
 
 
               <button type="submit" class="btn btn-primary">

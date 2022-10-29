@@ -1,0 +1,78 @@
+.text{
+    color: rgb(18, 16, 16);
+    text-decoration: none;
+    margin-top: 30px;
+}
+/* .photo
+{
+    height: 400px;
+    width: 400px;
+    border-radius: 100px;
+    margin-right: 100px;
+} */
+
+.our-team{
+    padding:20px 15px 30px;
+    background:rgb(33, 6, 4);
+    text-align:center;
+    }
+    .our-team .pic{
+        display:inline-block;
+        width:100%;
+        height:100%;
+        background:rgb(74, 71, 71);
+        padding:10px;
+        margin-bottom:25px;
+        transition:all 0.5s ease 0s;
+    }
+    .our-team:hover .pic{
+        background:#353838;
+        border-radius:50%;
+    }
+    .pic img{
+        width:100%;
+        height:250px;
+        border-radius:50%;
+    }
+    .title{
+        display:block;
+        font-size:20px;
+        font-weight:600;
+        color: #2a138f;
+        margin: 0 0 7px 0;
+    }
+    .role{
+        display:block;
+        font-size:15px;
+        color: #14afd6;
+        margin-bottom:15px;
+    }
+    .social{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    .social li{
+        display:inline-block;
+        margin-right:5px;
+    }
+    .social li a{
+        display:block;
+        width: 30px;
+        height: 30px;
+        line-height:30px;
+        border-radius:50%;
+        font-size:15px;
+        color: #1f398e;
+        border: 1px solid #501884;
+        transition:all 0.5s ease 0s;
+    }
+    .our-team:hover .social li a{
+        background: #c1c9d3;
+        color: rgb(111, 13, 65);
+    }
+    @media only screen and (max-width:900px){
+        .our-team{
+            margin-bottom:30px;
+        }
+    }

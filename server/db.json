@@ -5,7 +5,20 @@
       "firstname": "prabhash",
       "lastname": "varma",
       "email": "varma@gmail.com",
-      "password": "12345"
+      "phone":"9999999999",
+      "password": "12345",
+      "state": "AP",
+      "pincode": "123456"
+    },
+    {
+      "id": 3089460630598,
+      "firstName": "john",
+      "lastName": "jaw",
+      "email": "john@gmail.com",
+      "phone":"9999999999",
+      "password": "12345",
+      "state": "AP",
+      "pincode": "123456"
     }
   ]
 }

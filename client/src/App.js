@@ -13,6 +13,10 @@ import Salon from './pages/Salon'
 import Appliances from './pages/Appliances'
 import HomeCleaning from './pages/HomeCleaning'
 import PackersAndMovers from './pages/PackersAndMovers'
+import Construction from './pages/Construction';
+import PestControl from './pages/PestControl';
+import Painting from './pages/Painting';
+import Plumbing from './pages/Plumbing';
 import Profile from './pages/Profile';
 import Cart from './pages/Cart'
 import Orders from'./pages/Orders'
@@ -26,7 +30,7 @@ export const store=createContext();
 function App() {
   const [cartItems,setCartItems] =useState([]);
   const [orderslist,setOrderslist] =useState([])
-  const [userdetails,setUserDetails] =useState({});
+  const [userdetails,setUserDetails] =useState({email:"",password:""});
 
   return (
     <div className="App">
@@ -44,6 +48,10 @@ function App() {
           <Route path="/ays/services/homecleaning" element={<HomeCleaning/>}/>
           <Route path="/ays/services/packersandmovers" element={<PackersAndMovers/>}/>
           <Route path="/ays/services/appliances" element={<Appliances/>}/>
+          <Route path="/ays/services/pestcontrol" element={<PestControl/>}/>
+          <Route path="/ays/services/painting" element={<Painting/>}/>
+          <Route path="/ays/services/plumbing" element={<Plumbing/>}/>
+          <Route path="/ays/services/construction" element={<Construction/>}/>
           <Route path="/ays/cart" element={<Cart/>}/>
           <Route path="/ays/profile" element={<Profile/>}/>
           <Route path="/ays/orders" element={<Orders/>}/>
