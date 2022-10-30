@@ -12,6 +12,8 @@ function Signup() {
     lastName: "",
     email: "",
     phone: "",
+    address: "",
+    city:"",
     state: "",
     pincode: "",
     password: "",
@@ -21,6 +23,8 @@ function Signup() {
   const [lastNameMsg, setLastNameMsg] = useState("");
   const [emailMsg, setEmailMsg] = useState("");
   const [phoneMsg, setPhoneMsg] = useState("");
+  const [addressMsg, setAddressMsg] = useState("");
+  const [cityMsg, setCityMsg] = useState("");
   const [stateMsg, setStateMsg] = useState("");
   const [pincodeMsg, setPincodeMsg] = useState("");
   const [passwordMsg, setPasswordMsg] = useState("");
@@ -40,22 +44,29 @@ function Signup() {
       lastName,
       email,
       phone,
+      address,
+      city,
       state,
       pincode,
       password,
       confirmPassword,
     } = user;
+
     if (firstName === "") {
       setFirstNameMsg("First name is required!");
     } else if (lastName === "") {
       setLastNameMsg("Last name is required!");
     } else if (email === "" || !email.includes("@")) {
       setEmailMsg("Enter valid email!");
-    } else if (phone === "" || phone.length !== 10) {
+    } else if (phone === "" || !phone.match(/^[0-9]{10}$/)) {
       setPhoneMsg("Enter valid phone number!");
+    } else if (address === "") {
+      setAddressMsg("Address is required!");
+    } else if (city === "") {
+      setCityMsg("City is required!");
     } else if (state === "") {
       setStateMsg("State is required!");
-    } else if (pincode === "" || pincode.length !== 6) {
+    } else if (pincode === "" || !pincode.match(/^[0-9]{6}$/)) {
       setPincodeMsg("Enter valid pincode!");
     } else if (password === "" || password.length < 5) {
       setPasswordMsg("Password should be atleast 5 characters long!");
@@ -72,6 +83,8 @@ function Signup() {
             lastName,
             email,
             phone,
+            address,
+            city,
             password,
             state,
             pincode,
@@ -112,8 +125,8 @@ function Signup() {
             <div className="container">
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <div style={{ "margin-right": "10px" }} class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">
-                    First Name
+                  <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}} for="exampleInputEmail1" class="form-label">
+                    First Name<p style={{color:"red"}}>*</p>
                   </label>
                   <input
                     type="text"
@@ -131,8 +144,8 @@ function Signup() {
                   <p style={{ color: "red" }}>{firstNameMsg}</p>
                 </div>
                 <div style={{ "margin-left": "10px" }} class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">
-                    Last Name
+                  <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}} for="exampleInputEmail1" class="form-label">
+                  Last Name<p style={{color:"red"}}>*</p>
                   </label>
                   <input
                     type="text"
@@ -153,8 +166,8 @@ function Signup() {
 
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <div style={{ "margin-right": "10px" }} class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">
-                    Email
+                  <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}}  for="exampleInputEmail1" class="form-label">
+                    Email<p style={{color:"red"}}>*</p>
                   </label>
                   <input
                     type="text"
@@ -172,8 +185,8 @@ function Signup() {
                   <p style={{ color: "red" }}>{emailMsg}</p>
                 </div>
                 <div style={{ "margin-left": "10px" }} class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">
-                    Phone
+                  <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}}  for="exampleInputEmail1" class="form-label">
+                    Phone<p style={{color:"red"}}>*</p>
                   </label>
                   <input
                     type="text"
@@ -192,10 +205,54 @@ function Signup() {
                 </div>
               </div>
 
+
+
+
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <div style={{ "margin-right": "10px" }} class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">
-                    State
+                  <label  style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}} for="exampleInputEmail1" class="form-label">
+                    Address<p style={{color:"red"}}>*</p>
+                  </label>
+                  <input
+                    type="text"
+                    name="address"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Church Street"
+                    // value={user.email}
+                    onChange={(e) => {
+                      setEmailMsg("");
+                      handleInputs(e);
+                    }}
+                  />
+                  <p style={{ color: "red" }}>{emailMsg}</p>
+                </div>
+                <div style={{ "margin-left": "10px" }} class="mb-3">
+                  <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}}  for="exampleInputEmail1" class="form-label">
+                    City<p style={{color:"red"}}>*</p>
+                  </label>
+                  <input
+                    type="text"
+                    name="city"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Mumbai"
+                    // value={user.phone}
+                    onChange={(e) => {
+                      setPhoneMsg("");
+                      handleInputs(e);
+                    }}
+                  />
+                  <p style={{ color: "red" }}>{phoneMsg}</p>
+                </div>
+              </div>
+
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <div style={{ "margin-right": "10px" }} class="mb-3">
+                  <label  style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}} for="exampleInputEmail1" class="form-label">
+                    State<p style={{color:"red"}}>*</p>
                   </label>
                   <input
                     type="text"
@@ -213,8 +270,8 @@ function Signup() {
                   <p style={{ color: "red" }}>{stateMsg}</p>
                 </div>
                 <div style={{ "margin-left": "10px" }} class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">
-                    Pincode
+                  <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}}  for="exampleInputEmail1" class="form-label">
+                    Pincode<p style={{color:"red"}}>*</p>
                   </label>
                   <input
                     type="text"
@@ -234,9 +291,9 @@ function Signup() {
               </div>
 
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <div style={{ "margin-right": "10px" }} class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">
-                    Password
+                <div style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}}  style={{ "margin-right": "10px" }} class="mb-3">
+                  <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}} for="exampleInputEmail1" class="form-label">
+                    Password<p style={{color:"red"}}>*</p>
                   </label>
                   <input
                     type="password"
@@ -244,7 +301,7 @@ function Signup() {
                     class="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
-                    placeholder="********"
+                    placeholder="atleast 5 characters"
                     // value={user.password}
                     onChange={(e) => {
                       setPasswordMsg("");
@@ -254,8 +311,8 @@ function Signup() {
                   <p style={{ color: "red" }}>{passwordMsg}</p>
                 </div>
                 <div style={{ "margin-left": "10px" }} class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">
-                    Confirm Password
+                  <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}}  for="exampleInputEmail1" class="form-label">
+                    Confirm Password<p style={{color:"red"}}>*</p>
                   </label>
                   <input
                     type="password"
@@ -263,7 +320,7 @@ function Signup() {
                     class="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
-                    placeholder="********"
+                    placeholder="atleast 5 characters"
                     // value={user.confirmPassword}
                     onChange={(e) => {
                       setConfirmPasswordMsg("");

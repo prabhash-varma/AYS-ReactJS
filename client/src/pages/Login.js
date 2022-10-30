@@ -92,8 +92,8 @@ function Login() {
         <form onSubmit={submit} >
           <div className="container">
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">
-                Email address
+              <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}} for="exampleInputEmail1" class="form-label">
+                Email address<p style={{color:"red"}}>*</p>
               </label>
               <div style={{display:"flex",justifyContent: "center"}}>
               {/* <i class="fa fa-user" style={{fontSize:"20px",marginRight: "6px",marginTop:"3px",color:"black"}} aria-hidden="true"></i> */}
@@ -119,8 +119,8 @@ function Login() {
 
 
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">
-                Password
+              <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}} for="exampleInputPassword1" class="form-label">
+                Password<p style={{color:"red"}}>*</p>
               </label>
               
               <div style={{display:"flex",flexDirection:"row"}}>

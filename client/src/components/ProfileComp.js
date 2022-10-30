@@ -36,7 +36,7 @@ function ProfileComp(props) {
               <div className="card-body">
                 <div className="row gutters">
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <h6 className="mb-2 text-primary">Personal Details</h6>
+                    <h3 className="mb-2 text-primary">Personal Details</h3>
                   </div>
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
@@ -91,13 +91,14 @@ function ProfileComp(props) {
                 </div>
                 <div className="row gutters">
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <h6 className="mt-3 mb-2 text-primary">Address</h6>
+                    <h3 className="mt-3 mb-2 text-primary">Address</h3>
                   </div>
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
                       <label htmlFor="Street">Addresss</label>
                       <input
                         type="name"
+                        value={props.address}
                         className="form-control" style={{marginBottom:"1em"}}
                         id="Street"
                         placeholder="Street"
@@ -109,6 +110,7 @@ function ProfileComp(props) {
                       <label htmlFor="ciTy">City</label>
                       <input
                         type="name"
+                        value={props.city}
                         className="form-control"
                         id="ciTy"
                         placeholder="City"
@@ -143,22 +145,22 @@ function ProfileComp(props) {
                 <div className="row gutters">
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div className="text-right " style={{marginTop: "30px"}}>
-                      <button
+                      {/* <button
                         type="button"
                         id="submit"
                         name="submit"
                         className="btn btn-secondary " style={{margin: "10px"}}
                       >
                         Cancel
-                      </button>
-                      <button
+                      </button> */}
+                      {/* <button
                         type="button"
                         id="submit"
                         name="submit"
                         className="btn btn-primary" style={{margin: "10px"}}
                       >
                         Update
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 </div>

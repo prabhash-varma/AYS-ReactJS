@@ -12,6 +12,7 @@ function About() {
     <div>
        <HomeNav/>
 
+      <br style={{marginTop:"100px"}}></br>
        {/* <h1 class="text-center fw-bold">Team AYS</h1>
       <p class="text-muted text-center">
         The team with a vision to connect customers and service provides and

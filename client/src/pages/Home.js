@@ -36,15 +36,20 @@ function Home() {
       <img id="MainImage" src={MainImage} alt="MainImage" />
 
      
-      <h1 style={{"margin-top":"65px"}}>Our Services</h1>
+      <h1 style={{"margin-top":"65px",marginBottom:"15px"}}>Our Services</h1>
 
-      <div className="grad">
+    <div style={{display:"flex",justifyContent:"center"}}>
+    <div className="grad">
       <div className="services">
-        <div className="services-name">
+        <div className="services-name" onClick={()=>{
+          navigate('/ays/services/appliances');
+        }}>
           <img src={Appliance} alt="Appliance" />
           <h3>Appliances</h3>
         </div>
-        <div className="services-name">
+        <div className="services-name" onClick={()=>{
+          navigate('/ays/services/homecleaning');
+        }}>
         <img src={HomeCleaning} alt="HomeCleaning" />
         <h3>Home Cleaning</h3>
         </div>
@@ -54,20 +59,25 @@ function Home() {
         <img src={PackersAndMovers} alt="PackersAndMovers"/>
         <h3>Packers And Movers</h3>
         </div>
-        <div className="services-name">
-        <img src={Salon} alt="Salon" />
-        <h3>Salon</h3>
-        </div>
+        
         
       </div>
 
 
       <div className="services" style={{"margin-bottom":"40px"}}>
-      <div className="services-name">
+      <div className="services-name" onClick={()=>{
+          navigate('/ays/services/salon')
+        }}>
+        <img src={Salon} alt="Salon" />
+        <h3>Salon</h3>
+      </div>
+      <div className="services-name" onClick={()=>{
+          navigate('/ays/services/pestcontrol')
+        }}>
         <img src={Pestcontrol} alt="PestControl" />
         <h3>Pest Control</h3>
-        </div>
-        <div className="services-name">
+      </div>
+        {/* <div className="services-name">
         <img src={Construction} alt="Construction" />
         <h3>Construction</h3>
         </div>
@@ -75,12 +85,17 @@ function Home() {
         <div className="services-name">
         <img src={Plumbing} alt="Plumbing" />
         <h3>Plumbing</h3>
-        </div>
-        <div className="services-name">
+        </div> */}
+        <div className="services-name" onClick={()=>{
+          navigate('/ays/services/painting')
+        }}>
         <img src={Painting} alt="Painting" />
         <h3>Painting</h3>
-    </div>
+        </div>
       </div>
+
+
+    </div>
 
 </div>
 

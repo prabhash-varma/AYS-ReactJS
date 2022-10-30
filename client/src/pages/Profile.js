@@ -29,7 +29,8 @@ function Profile() {
   return (
     <div>
       <HomeNav />
-      <ProfileComp firstName={profileData.firstname} lastName={profileData.lastname} email={profileData.email} phone={profileData.phone} state={profileData.state} pincode={profileData.pincode}/>
+      <p style={{marginTop:"100px"}}></p>
+      <ProfileComp firstName={profileData.firstName} lastName={profileData.lastName} email={profileData.email} phone={profileData.phone} address={profileData.address} city={profileData.city} state={profileData.state} pincode={profileData.pincode}/>
     </div>
   );
 }

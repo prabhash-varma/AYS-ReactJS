@@ -42,10 +42,10 @@ function Main() {
 
       <MainNav1/>
       <img id="MainImage" src={MainImage} alt="MainImage" />
-      <h1 style={{"margin-top":"75px","font-family":"sans-serif"}}>Our Services</h1>
+      <h1 style={{"margin-top":"75px","font-family":"sans-serif",marginBottom:"15px"}}>Our Services</h1>
       
 
-
+      <div style={{display:"flex",justifyContent:"center"}}>
       <div className="grad">
 
       <div className="services">
@@ -63,36 +63,39 @@ function Main() {
         <img src={PackersAndMovers} alt="PackersAndMovers"/>
         <h4>Packers And Movers</h4>
         </div>
-        <div className="services-name" onClick={()=> navigate("/login")}>
-        <img src={Salon} alt="Salon" />
-        <h4>Salon</h4>
-        </div>
+       
        
       </div>
 
 
 
       <div className="services" style={{"margin-bottom":"40px"}}>
+
       <div className="services-name" onClick={()=> navigate("/login")}>
+        <img src={Salon} alt="Salon" />
+        <h4>Salon</h4>
+        </div>
+
+      <div className="services-name" onClick={()=> navigate("/login")}>     
         <img src={Pestcontrol} alt="PestControl" />
         <h4>Pest Control</h4>
         </div>
-        <div className="services-name" onClick={()=> navigate("/login")}>
+        {/* <div className="services-name" onClick={()=> navigate("/login")}>
         <img src={Construction} alt="Construction" />
         <h4>Construction</h4>
-        </div>
+        </div> */}
         
-        <div className="services-name" onClick={()=> navigate("/login")}>
+        {/* <div className="services-name" onClick={()=> navigate("/login")}>
         <img src={Plumbing} alt="Plumbing" />
         <h4>Plumbing</h4>
-        </div>
+        </div> */}
         <div className="services-name" onClick={()=> navigate("/login")}>
         <img src={Painting} alt="Painting" />
         <h4>Painting</h4>
     </div>
 
     </div>
-
+</div>
     </div>
 
 
