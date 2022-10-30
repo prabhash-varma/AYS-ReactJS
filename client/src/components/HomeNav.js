@@ -47,25 +47,26 @@ const HomeNav = () => {
             Account
           </a>
           <ul className="dropdown-menu">
-            <Link to="/ays/profile"><li><a className="dropdown-item" href="#"><i   style={{marginRight:"5px" ,fontSize:"18px" }}class="fas fa-user-circle"></i>Profile</a></li></Link>
-            <Link to="/ays/orders"><li><a className="dropdown-item" href="#"> <i  style={{marginRight:"5px"}} class="fas fa-box-open"></i>     Orders</a></li></Link>              
-            <Link to="/ays/contactus"><a className="dropdown-item" aria-current="page" href="#"><i   style={{marginRight:"6px"  }}class="fas fa-phone"></i>ContactUs</a></Link>
+            <Link to="/ays/profile"><li><a className="dropdown-item" href="#"><i  style={{marginRight:"15px",fontSize:"18px"}} class="fas fa-user-circle"></i>Profile</a></li></Link>
+            <Link to="/ays/orders"><li><a className="dropdown-item" href="#"> <i  style={{marginRight:"15px",fontSize:"18px"}}  class="fas fa-shopping-bag"></i>Orders</a></li></Link>              
+            <Link to="/ays/contactus"><a className="dropdown-item" aria-current="page" href="#"><i   style={{marginRight:"15px",fontSize:"18px"}} class="fas fa-phone"></i>Contact</a></Link>
             <li><hr class="dropdown-divider"/></li>
             
-           <Link to="/ays/settings"><li><a class="dropdown-item" href="#"><i  style={{marginRight:"5px"}} class="fa fa-cog"></i>Settings</a></li></Link>         
-          <Link to="/"><li><a class="dropdown-item" href="#">Logout</a></li></Link>
+           <Link to="/ays/settings"><li><a class="dropdown-item" href="#"><i style={{marginRight:"15px",fontSize:"18px"}} class="fa fa-cog"></i>Settings</a></li></Link>         
+          <Link to="/"><li><a class="dropdown-item" href="#"><i style={{marginRight:"15px",fontSize:"18px"}} class="fa fa-sign-out" aria-hidden="true"></i>
+Logout</a></li></Link>
           </ul>
         </li>
         <li className="nav-item">
-        {/* <Link to="/ays/cart"><a className="nav-link active position-relative" > <i  style={{marginRight:"5px",fontSize:"24px"}} class="fa-solid fa-cart-shopping"></i> <span  style={{color:"black" ,fontSize:"15px"}}class=" top-0 start-100 translate-middle badge border-light rounded-circle bg-danger p-2 ">
+        <Link to="/ays/cart"><a className="nav-link active position-relative" > <i  style={{marginRight:"15px",fontSize:"24px"}} class="fa-solid fa-cart-shopping"></i> <span  style={{color:"white" ,fontSize:"15px"}}class=" top-0 start-100 translate-middle badge border-light rounded-circle bg-danger p-2 ">
     {cartItems.length}
 
   </span>
- </a></Link>                  */}
+ </a></Link>                 
 
-<button type="button" class="btn btn-light position-relative">
+{/* <button type="button" class="btn btn-light position-relative">
 <Link to="/ays/cart"><i style={{fontSize:"25px"}}  class="fa-solid fa-cart-shopping"></i> </Link><span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-8">{cartItems.length}<span  class="visually-hidden">unread messages</span></span>
-</button>
+</button> */}
         </li>
         
        

@@ -11,7 +11,7 @@ import Applianceimg3 from "./Images/water_purifier.png";
 import { useNavigate } from "react-router-dom";
 
 import Collapsible from 'react-collapsible';
-
+import {toast} from 'react-toastify'
 
 function Appliances() {
 
@@ -108,7 +108,7 @@ function Appliances() {
         <div className="appliance-card">
           <ApplianceItem
             img={Applianceimg1}
-            name="Appliance Repair"
+            name="Appliance Repair1"
             rating="4.5"
             size="800k"
             price="₹ 5000"
@@ -116,10 +116,16 @@ function Appliances() {
           <button
             className="btn btn-primary"
             onClick={() => {
+
+              if(cartItems.filter(e => e.name === 'Appliance Repair1').length > 0){
+                toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+              }
+              else{
+
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Appliance Repair",
+                  name: "Appliance Repair1",
                   img: Applianceimg1,
                   rating: "4.5",
                   size: "800k",
@@ -129,7 +135,10 @@ function Appliances() {
               console.log(cartItems);
               //alert("Added to Cart!")
               //navigate("/ays/cart");
+              toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
+            }
             }}
+          
           >
             <i
               style={{ marginRight: "8px" }}
@@ -143,7 +152,7 @@ function Appliances() {
         <div className="appliance-card">
           <ApplianceItem
             img={Applianceimg2}
-            name="Appliance Repair"
+            name="Appliance Repair2"
             rating="4.5"
             size="800k"
             price="₹ 6000"
@@ -151,10 +160,15 @@ function Appliances() {
           <button
             className="btn btn-primary"
             onClick={() => {
+
+              if(cartItems.filter(e => e.name === 'Appliance Repair2').length > 0){
+                toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+              }
+              else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Appliance Repair",
+                  name: "Appliance Repair2",
                   img: Applianceimg2,
                   rating: "4.5",
                   size: "800k",
@@ -164,6 +178,8 @@ function Appliances() {
               console.log(cartItems);
               //alert("Added to Cart!")
              // navigate("/ays/cart");
+             toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
+            }
             }}
           >
             <i
@@ -179,7 +195,7 @@ function Appliances() {
         <div className="appliance-card">
           <ApplianceItem
             img={Applianceimg3}
-            name="Appliance Repair"
+            name="Appliance Repair3"
             rating="4.5"
             size="800k"
             price="₹ 7000"
@@ -187,10 +203,15 @@ function Appliances() {
           <button
             className="btn btn-primary"
             onClick={() => {
+
+              if(cartItems.filter(e => e.name === 'Appliance Repair3').length > 0){
+                toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+              }
+              else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Appliance Repair",
+                  name: "Appliance Repair3",
                   img: Applianceimg3,
                   rating: "4.5",
                   size: "800k",
@@ -200,6 +221,8 @@ function Appliances() {
               console.log(cartItems);
               //alert("Added to Cart!")
               //navigate("/ays/cart");
+              toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
+            }
             }}
           >
             <i

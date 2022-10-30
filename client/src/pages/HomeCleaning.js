@@ -10,7 +10,7 @@ import Packers from '../components/PackersItem.js'
 import Collapsible from 'react-collapsible';
 import './css/HomeCleaning.css'
 import HomeItem from '../components/HomeItem.js'
-
+import {toast} from 'react-toastify'
 
 function HomeCleaning() {
     const globalState = useContext(store);
@@ -101,7 +101,7 @@ function HomeCleaning() {
           <div className="homecleaning-card">
             <HomeItem
               img={HomeCleaningimg1}
-              name="Home Cleaning"
+              name="Home Cleaning1"
               rating="4.5"
               size="800k"
               price="₹ 5000"
@@ -109,19 +109,28 @@ function HomeCleaning() {
             <button
               className="btn btn-primary"
               onClick={() => {
+
+                if(cartItems.filter(e => e.name === 'Home Cleaning1').length > 0){
+                  toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+                }
+                else{
+
                 setCartItems([
                   ...cartItems,
                   {
-                    name: "Home Cleaning",
+                    name: "Home Cleaning1",
                     img: HomeCleaningimg1,
                     rating: "4.5",
                     size: "800k",
                     price: "₹ 5000",
                   },
                 ]);
+                toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
+              }
                 console.log(cartItems);
                 //alert("Added to Cart!")
                 //navigate("/ays/cart");
+               
               }}
             >
               <i
@@ -136,7 +145,7 @@ function HomeCleaning() {
           <div className="homecleaning-card">
             <HomeItem
               img={HomeCleaningimg2}
-              name="Home Cleaning"
+              name="Home Cleaning2"
               rating="4.5"
               size="800k"
               price="₹ 6000"
@@ -144,10 +153,17 @@ function HomeCleaning() {
             <button
               className="btn btn-primary"
               onClick={() => {
+
+
+
+                if(cartItems.filter(e => e.name === 'Home Cleaning2').length > 0){
+                  toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+                }
+                else{
                 setCartItems([
                   ...cartItems,
                   {
-                    name: "Home Cleaning",
+                    name: "Home Cleaning2",
                     img: HomeCleaningimg2,
                     rating: "4.5",
                     size: "800k",
@@ -157,6 +173,8 @@ function HomeCleaning() {
                 console.log(cartItems);
                 //alert("Added to Cart!")
                // navigate("/ays/cart");
+               toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
+              }
               }}
             >
               <i
@@ -172,7 +190,7 @@ function HomeCleaning() {
           <div className="homecleaning-card">
             <HomeItem
               img={HomeCleaningimg3}
-              name="Home Cleaning"
+              name="Home Cleaning3"
               rating="4.5"
               size="800k"
               price="₹ 7000"
@@ -180,10 +198,16 @@ function HomeCleaning() {
             <button
               className="btn btn-primary"
               onClick={() => {
+
+
+                if(cartItems.filter(e => e.name === 'Home Cleaning3').length > 0){
+                  toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+                }
+                else{
                 setCartItems([
                   ...cartItems,
                   {
-                    name: "Home Cleaning",
+                    name: "Home Cleaning3",
                     img: HomeCleaningimg3,
                     rating: "4.5",
                     size: "800k",
@@ -193,7 +217,9 @@ function HomeCleaning() {
                 console.log(cartItems);
                 //alert("Added to Cart!")
                 //navigate("/ays/cart");
+                toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
               }}
+            }
             >
               <i
                 style={{ marginRight: "5px" }}

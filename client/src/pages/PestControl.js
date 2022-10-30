@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 import Collapsible from 'react-collapsible';
 
-
+import {toast} from 'react-toastify'
 
 
 function PestControl() {
@@ -108,7 +108,7 @@ function PestControl() {
         <div className="pestcontrol-card">
           <PestItem
             img={PestControlimg1}
-            name="Pest Control"
+            name="Pest Control1"
             rating="4.5"
             size="800k"
             price="₹ 5000"
@@ -116,10 +116,15 @@ function PestControl() {
           <button
             className="btn btn-primary"
             onClick={() => {
+
+              if(cartItems.filter(e => e.name === 'Pest Control1').length > 0){
+                toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+              }
+              else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Pest Control",
+                  name: "Pest Control1",
                   img: PestControlimg1,
                   rating: "4.5",
                   size: "800k",
@@ -129,6 +134,8 @@ function PestControl() {
               console.log(cartItems);
               //alert("Added to Cart!")
               //navigate("/ays/cart");
+              toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
+            }
             }}
           >
             <i
@@ -143,7 +150,7 @@ function PestControl() {
         <div className="pestcontrol-card">
           <PestItem
             img={PestControlimg2}
-            name="Pest Control"
+            name="Pest Control2"
             rating="4.5"
             size="800k"
             price="₹ 6000"
@@ -151,10 +158,15 @@ function PestControl() {
           <button
             className="btn btn-primary"
             onClick={() => {
+
+              if(cartItems.filter(e => e.name === 'Pest Control2').length > 0){
+                toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+              }
+              else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Pest Control",
+                  name: "Pest Control2",
                   img: PestControlimg2,
                   rating: "4.5",
                   size: "800k",
@@ -164,6 +176,8 @@ function PestControl() {
               console.log(cartItems);
               //alert("Added to Cart!")
              // navigate("/ays/cart");
+             toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
+            }
             }}
           >
             <i
@@ -179,7 +193,7 @@ function PestControl() {
         <div className="pestcontrol-card">
           <PestItem
             img={PestControlimg3}
-            name="Pest Control"
+            name="Pest Control3"
             rating="4.5"
             size="800k"
             price="₹ 7000"
@@ -187,10 +201,14 @@ function PestControl() {
           <button
             className="btn btn-primary"
             onClick={() => {
+              if(cartItems.filter(e => e.name === 'Pest Control3').length > 0){
+                toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+              }
+              else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Shop Moving",
+                  name: "Pest Control3",
                   img: PestControlimg3,
                   rating: "4.5",
                   size: "800k",
@@ -200,6 +218,8 @@ function PestControl() {
               console.log(cartItems);
               //alert("Added to Cart!")
               //navigate("/ays/cart");
+              toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
+            }
             }}
           >
             <i

@@ -29,7 +29,7 @@ function Profile() {
   return (
     <div>
       <HomeNav />
-      <p style={{marginTop:"100px"}}></p>
+      <p style={{marginTop:"70px"}}></p>
       <ProfileComp firstName={profileData.firstName} lastName={profileData.lastName} email={profileData.email} phone={profileData.phone} address={profileData.address} city={profileData.city} state={profileData.state} pincode={profileData.pincode}/>
     </div>
   );

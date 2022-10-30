@@ -2,10 +2,12 @@
   "users": [
     {
       "id": 1,
-      "firstname": "prabhash",
-      "lastname": "varma",
+      "firstName": "prabha",
+      "lastName": "varma",
       "email": "varma@gmail.com",
-      "phone":"9999999999",
+      "phone": "1234567890",
+      "address": "gandhi nagar",
+      "city": "hyderabad",
       "password": "12345",
       "state": "AP",
       "pincode": "123456"
@@ -15,7 +17,9 @@
       "firstName": "john",
       "lastName": "jaw",
       "email": "john@gmail.com",
-      "phone":"9999999999",
+      "phone": "9999999999",
+      "address": "gandhi nagar",
+      "city": "hyderabad",
       "password": "12345",
       "state": "AP",
       "pincode": "123456"

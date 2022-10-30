@@ -5,6 +5,7 @@ import CartItem from "../components/CartItem.js";
 import "./css/Cart.css";
 import {useNavigate} from 'react-router-dom'
 import CartAnimation from "./Images/CartAnimation.gif"
+import {toast} from 'react-toastify'
 
 
 function Cart() {
@@ -82,6 +83,7 @@ function Cart() {
     else{
     
       //setOrderItems({...orderItems,});
+
       console.log(orderItems);
       orderItems.add_orderItems.map((cartItem)=>{
         console.log("1")
@@ -122,6 +124,8 @@ function Cart() {
   return (
     <div>
       <HomeNav />
+
+    <p style={{marginTop:"90px"}}></p>
       <div className="cart-header" style={{ display: "flex",flexDirection: "row",justifyContent: "space-between",width:"600px"}}>
         <div>
         <h1 style={{ "margin-top": "60px", marginLeft: "50px" }}>
@@ -165,6 +169,7 @@ function Cart() {
                   setCartItems(cartItems.filter((i,id) => id !== key));
                   setSum(0)
                   // alert("Removed from Cart!")
+                  toast.error("Item Removed from Cart!",{position: toast.POSITION.BOTTOM_RIGHT})
                 }}
               >
                 <i

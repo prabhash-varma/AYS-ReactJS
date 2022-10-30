@@ -12,6 +12,8 @@ import { useNavigate } from "react-router-dom";
 
 import Collapsible from 'react-collapsible';
 
+import {toast} from 'react-toastify'
+
 
 
 
@@ -22,6 +24,7 @@ function Salon() {
   const [cartItems, setCartItems] = globalState;
   const navigate = useNavigate();
 
+  
 
 
   return (
@@ -110,7 +113,7 @@ function Salon() {
         <div className="salon-card">
           <SalonItem
             img={Salonimg1}
-            name="Salon at Home"
+            name="Salon1"
             rating="4.5"
             size="800k"
             price="₹ 5000"
@@ -118,19 +121,26 @@ function Salon() {
           <button
             className="btn btn-primary"
             onClick={() => {
+              if(cartItems.filter(e => e.name === 'Salon1').length > 0){
+                toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+              }
+              else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Salon at Home",
+                  name: "Salon1",
                   img: Salonimg1,
                   rating: "4.5",
                   size: "800k",
                   price: "₹ 5000",
                 },
+
               ]);
               console.log(cartItems);
               //alert("Added to Cart!")
               //navigate("/ays/cart");
+              toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
+            }
             }}
           >
             <i
@@ -145,7 +155,7 @@ function Salon() {
         <div className="salon-card">
           <SalonItem
             img={Salonimg2}
-            name="Salon at Home"
+            name="Salon2"
             rating="4.5"
             size="800k"
             price="₹ 6000"
@@ -153,10 +163,15 @@ function Salon() {
           <button
             className="btn btn-primary"
             onClick={() => {
+
+              if(cartItems.filter(e => e.name === 'Salon2').length > 0){
+                toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+              }
+              else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Salon at Home",
+                  name: "Salon2",
                   img: Salonimg2,
                   rating: "4.5",
                   size: "800k",
@@ -166,6 +181,8 @@ function Salon() {
               console.log(cartItems);
               //alert("Added to Cart!")
              // navigate("/ays/cart");
+              toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
+            }
             }}
           >
             <i
@@ -181,7 +198,7 @@ function Salon() {
         <div className="salon-card">
           <SalonItem
             img={Salonimg3}
-            name="Salon at Home"
+            name="Salon3"
             rating="4.5"
             size="800k"
             price="₹ 7000"
@@ -189,10 +206,16 @@ function Salon() {
           <button
             className="btn btn-primary"
             onClick={() => {
+
+
+              if(cartItems.filter(e => e.name === 'Salon3').length > 0){
+                toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+              }
+              else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Salon at Home",
+                  name: "Salon3",
                   img: Salonimg3,
                   rating: "4.5",
                   size: "800k",
@@ -202,6 +225,8 @@ function Salon() {
               console.log(cartItems);
               //alert("Added to Cart!")
               //navigate("/ays/cart");
+              toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
+            }
             }}
           >
             <i

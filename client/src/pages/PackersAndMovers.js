@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 import Collapsible from 'react-collapsible';
 
-
+import {toast} from 'react-toastify'
 
 function PackersAndMovers() {
   const globalState = useContext(store);
@@ -33,16 +33,7 @@ function PackersAndMovers() {
           <div>
             <h1 style={{ "margin-top": "15px", fontFamily: "sans-serif" }}>
               <b>Packers And Movers</b>
-              {/* <Typewriter
-
-              onInit={(typewriter) => {
-
-                typewriter
-
-                  .typeString("Packers And Movers")
-                  .start();
-              }}
-            /> */}
+             
             </h1>
 
           </div>
@@ -120,6 +111,11 @@ function PackersAndMovers() {
           <button
             className="btn btn-primary"
             onClick={() => {
+
+              if(cartItems.filter(e => e.name === 'House Moving').length > 0){
+                toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+              }
+              else{
               setCartItems([
                 ...cartItems,
                 {
@@ -133,6 +129,8 @@ function PackersAndMovers() {
               console.log(cartItems);
               //alert("Added to Cart!")
               //navigate("/ays/cart");
+              toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
+            }
             }}
           >
             <i
@@ -155,6 +153,11 @@ function PackersAndMovers() {
           <button
             className="btn btn-primary"
             onClick={() => {
+
+              if(cartItems.filter(e => e.name === 'Office Moving').length > 0){
+                toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+              }
+              else{
               setCartItems([
                 ...cartItems,
                 {
@@ -168,6 +171,8 @@ function PackersAndMovers() {
               console.log(cartItems);
               //alert("Added to Cart!")
              // navigate("/ays/cart");
+             toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
+            }
             }}
           >
             <i
@@ -191,6 +196,11 @@ function PackersAndMovers() {
           <button
             className="btn btn-primary"
             onClick={() => {
+
+              if(cartItems.filter(e => e.name === 'Shop Moving').length > 0){
+                toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+              }
+              else{
               setCartItems([
                 ...cartItems,
                 {
@@ -204,6 +214,8 @@ function PackersAndMovers() {
               console.log(cartItems);
               //alert("Added to Cart!")
               //navigate("/ays/cart");
+              toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
+            }
             }}
           >
             <i

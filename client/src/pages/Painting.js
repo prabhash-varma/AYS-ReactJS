@@ -11,6 +11,8 @@ import Paintingimg3 from "./Images/paintingimg3.jpg";
 import { useNavigate } from "react-router-dom";
 
 import Collapsible from 'react-collapsible';
+import {toast} from 'react-toastify'
+
 
 
 function Painting() {
@@ -109,7 +111,7 @@ function Painting() {
         <div className="painting-card">
           <PaintingItem
             img={Paintingimg1}
-            name="Painting"
+            name="Painting1"
             rating="4.5"
             size="800k"
             price="₹ 5000"
@@ -117,10 +119,15 @@ function Painting() {
           <button
             className="btn btn-primary"
             onClick={() => {
+
+              if(cartItems.filter(e => e.name === 'Painting1').length > 0){
+                toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+              }
+              else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Painting",
+                  name: "Painting1",
                   img: Paintingimg1,
                   rating: "4.5",
                   size: "800k",
@@ -130,6 +137,8 @@ function Painting() {
               console.log(cartItems);
               //alert("Added to Cart!")
               //navigate("/ays/cart");
+              toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
+            }
             }}
           >
             <i
@@ -144,7 +153,7 @@ function Painting() {
         <div className="painting-card">
           <PaintingItem
             img={Paintingimg2}
-            name="Painting"
+            name="Painting2"
             rating="4.5"
             size="800k"
             price="₹ 6000"
@@ -152,10 +161,16 @@ function Painting() {
           <button
             className="btn btn-primary"
             onClick={() => {
+
+
+              if(cartItems.filter(e => e.name === 'Painting2').length > 0){
+                toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+              }
+              else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Painting",
+                  name: "Painting2",
                   img: Paintingimg2,
                   rating: "4.5",
                   size: "800k",
@@ -165,6 +180,8 @@ function Painting() {
               console.log(cartItems);
               //alert("Added to Cart!")
              // navigate("/ays/cart");
+             toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
+            }
             }}
           >
             <i
@@ -180,7 +197,7 @@ function Painting() {
         <div className="painting-card">
           <PaintingItem
             img={Paintingimg3}
-            name="Painting"
+            name="Painting3"
             rating="4.5"
             size="800k"
             price="₹ 7000"
@@ -188,10 +205,16 @@ function Painting() {
           <button
             className="btn btn-primary"
             onClick={() => {
+
+
+              if(cartItems.filter(e => e.name === 'Painting3').length > 0){
+                toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
+              }
+              else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Painting",
+                  name: "Painting3",
                   img: Paintingimg3,
                   rating: "4.5",
                   size: "800k",
@@ -201,6 +224,8 @@ function Painting() {
               console.log(cartItems);
               //alert("Added to Cart!")
               //navigate("/ays/cart");
+              toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
+            }
             }}
           >
             <i
