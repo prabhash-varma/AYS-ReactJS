@@ -22,6 +22,8 @@ import Cart from './pages/Cart'
 import Orders from'./pages/Orders'
 import Settings from './pages/Settings'
 import PageNotFound from './pages/PageNotFound'
+import OrderDetails from './pages/OrderDetails';
+
 
 
 export const store=createContext();
@@ -55,6 +57,7 @@ function App() {
           <Route path="/ays/cart" element={<Cart/>}/>
           <Route path="/ays/profile" element={<Profile/>}/>
           <Route path="/ays/orders" element={<Orders/>}/>
+          <Route path="/ays/orders/:orderid" element={<OrderDetails/>}/>
           <Route path="/ays/settings" element={<Settings/>}/>
 
           <Route path="*" element={<PageNotFound/>}/>

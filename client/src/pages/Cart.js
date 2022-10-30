@@ -21,6 +21,7 @@ function Cart() {
   const [cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist] = globalState;
 
 
+  const [listItems,setListItems]=useState([])
 
 
   const [orderItems,setOrderItems] =useState({add_name:"",add_email:"",add_phone:"",add_address1:"",add_address2:"",add_state:"",add_pincode:"",add_date:"",add_orderItems:[],add_total:0});
@@ -81,11 +82,19 @@ function Cart() {
     else{
     
       //setOrderItems({...orderItems,});
+      console.log(orderItems);
+      orderItems.add_orderItems.map((cartItem)=>{
+        console.log("1")
+        setOrderslist((prevlist)=>{
+          return(
+          [...prevlist,{add_name:orderItems.add_name,add_email:orderItems.add_email,add_phone:orderItems.add_phone,add_address1:orderItems.add_address1,add_address2:orderItems.add_address2,add_state:orderItems.add_state,add_pincode:orderItems.add_pincode,add_date:orderItems.add_date,add_orderItems:cartItem,add_total:orderItems.add_total,...cartItem}]
+          )
+        });
+      })
 
-      setOrderslist([...orderslist,orderItems]);
       setCartItems([]);
 
-      console.log(orderItems);
+      console.log(orderslist);
       alert("Ordered Successfully");
       navigate("/ays/orders")
     }

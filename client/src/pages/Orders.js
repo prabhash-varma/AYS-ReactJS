@@ -2,6 +2,7 @@ import React,{ useState, useContext} from 'react'
 import HomeNav from '../components/HomeNav.js'
 import {store} from '../App.js'
 import './css/Orders.css'
+import {Link} from 'react-router-dom'
 
 
 function Orders() {
@@ -16,46 +17,37 @@ function Orders() {
         <h1 style={{ "margin-top": "60px", marginLeft: "50px" }}>
           <i
             style={{ marginRight: "20px" }}
-            class="fa-solid fa-cart-shopping"
+            class="fas fa-cubes"
           ></i>
           Orders
         </h1>
       </div>
       <hr style={{ width: "900px", height: "2px" }}></hr>
-        <div style={{display: "flex",flexDirection: "row",justifyContent:"center",alignItems: "center"}}>
-            
+
+
+
+      
+      <div style={{display: "flex",flexDirection: "row",justifyContent:"center"}}>
             {orderslist.length > 0 ? (
             <div className="orders-card" >
-              {orderslist.map((item)=>{
-  
+              {orderslist.map((item,key)=>{
                 return(
-                item.add_orderItems.map((it)=>{
-                  return(
-  
-                    <div className="order-item-card">
-  
-                      <h3>{it.name}</h3>
-                      <h3>{item.add_name}</h3>
-                      <h3>{item.add_email}</h3>
-                    </div>
-                  )
-                })
+                  <div className="order-item" style={{ display: "flex",flexDirection: "row" }}>
+                  
+                  <div style={{ display: "flex",flexDirection: "column" }}>
+                      
+                      <img style={{width:"200px"}} src={item.img}/>
+                    
+                        </div>
+                          <div>
+                            <h1>{item.name}</h1>
+                             <p>Ordered on {item.add_date}</p>
+                              </div>
+                    <p style={{marginTop:"100px"}}>          
+                     <Link to={`/ays/orders/${key}`}> <h6 >order details<i style={{ fontSize:"15px",marginRight:"30px",marginLeft:"3px"}} class="fa-solid fa-chevron-right"></i> </h6></Link>
+                    </p>
+                </div>
                 )
-                //return(
-                  // <div className="order-item" style={{ display: "flex",flexDirection: "row" }}>
-                  //   <div style={{ display: "flex",flexDirection: "column" }}>
-                  //   <h1>{item.add_date}</h1>
-                  //   <h1>{item.add_email}</h1>
-                  //   <h1>{item.add_phone}</h1>
-                  //   </div>
-                    
-                  //   <div style={{ display: "flex",flexDirection: "column" }}>
-                  //   <i  style={{ fontSize:"35px",marginRight:"30px"}} class="fa-solid fa-chevron-right"></i>
-                  //   </div>
-                    
-                  // </div>
-
-                //)
               })}
             </div>
             ) : (

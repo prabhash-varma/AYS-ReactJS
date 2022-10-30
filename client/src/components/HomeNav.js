@@ -1,13 +1,15 @@
-import React from 'react'
+import {React,useContext} from 'react'
+import { store } from "../App.js"
 import aysimage from './Images/ays.jpg';
 import {Link} from 'react-router-dom'
 import './css/HomeNav.css'
 
 
 const HomeNav = () => {
+  const [cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist]  = useContext(store);
   return (
     <div>
-        <nav className="navbar navbar-expand-lg bg-light">
+        <nav className="navbar navbar-expand-lg bg-light fixed-top">
   <div className="container-fluid">
         <a className="navbar-brand">
            <img style={{width:"100px",height:"45px","margin-left":"70px"}} src={aysimage} alt="#" />
@@ -24,7 +26,6 @@ const HomeNav = () => {
           <Link to="/ays/about"><a className="nav-link active" aria-current="page" href="#">About</a></Link>
         </li>
         <li className="nav-item">
-          <Link to="/ays/contactus"><a className="nav-link active" aria-current="page" href="#">ContactUs</a></Link>
         </li>
         
         <li className="nav-item dropdown">
@@ -32,16 +33,12 @@ const HomeNav = () => {
             Services
           </a>
           <ul className="dropdown-menu">
-            <Link to="/ays/services/appliances"><li><a className="dropdown-item" href="#">Appliances</a></li></Link>
-            <Link to="/ays/services/construction"><li><a className="dropdown-item" href="#">Construction</a></li></Link>
             <Link to="/ays/services/homecleaning"><li><a className="dropdown-item" href="#">Home Cleaning</a></li></Link>
-            <Link to="/ays/services/salon"><li><a className="dropdown-item" href="#">Salon</a></li></Link>
-
-
+            <Link to="/ays/services/appliances"><li><a className="dropdown-item" href="#">Appliances</a></li></Link>
             <Link to="/ays/services/packersandmovers"><li><a className="dropdown-item" href="#">Packers And Movers</a></li></Link>
-            <Link to="/ays/services/painting"><li><a className="dropdown-item" href="#">Painting</a></li></Link>
+            <Link to="/ays/services/salon"><li><a className="dropdown-item" href="#">Salon</a></li></Link>
             <Link to="/ays/services/pestcontrol"><li><a className="dropdown-item" href="#">Pest Control</a></li></Link>
-            <Link to="/ays/services/plumbing"><li><a className="dropdown-item" href="#">Plumbing</a></li></Link>
+            <Link to="/ays/services/painting"><li><a className="dropdown-item" href="#">Painting</a></li></Link>
           </ul>
         </li>
 
@@ -50,36 +47,27 @@ const HomeNav = () => {
             Account
           </a>
           <ul className="dropdown-menu">
-            
-            <Link to="/ays/profile"><li><a className="dropdown-item" href="#">Profile</a></li></Link>
-        
-
-          
-            <Link to="/ays/cart"><li><a className="dropdown-item" href="#">My Cart</a></li></Link>
-        
-
-
-          
-            <Link to="/ays/orders"><li><a className="dropdown-item" href="#">Orders</a></li></Link>
-       
-            
-            
-            
+            <Link to="/ays/profile"><li><a className="dropdown-item" href="#"><i   style={{marginRight:"5px" ,fontSize:"18px" }}class="fas fa-user-circle"></i>Profile</a></li></Link>
+            <Link to="/ays/orders"><li><a className="dropdown-item" href="#"> <i  style={{marginRight:"5px"}} class="fas fa-box-open"></i>     Orders</a></li></Link>              
+            <Link to="/ays/contactus"><a className="dropdown-item" aria-current="page" href="#"><i   style={{marginRight:"6px"  }}class="fas fa-phone"></i>ContactUs</a></Link>
             <li><hr class="dropdown-divider"/></li>
             
-            
-           
-           <Link to="/ays/settings"><li><a class="dropdown-item" href="#">Settings</a></li></Link>
-           
-            
-         
+           <Link to="/ays/settings"><li><a class="dropdown-item" href="#"><i  style={{marginRight:"5px"}} class="fa fa-cog"></i>Settings</a></li></Link>         
           <Link to="/"><li><a class="dropdown-item" href="#">Logout</a></li></Link>
-          
-           
-
-
           </ul>
         </li>
+        <li className="nav-item">
+        {/* <Link to="/ays/cart"><a className="nav-link active position-relative" > <i  style={{marginRight:"5px",fontSize:"24px"}} class="fa-solid fa-cart-shopping"></i> <span  style={{color:"black" ,fontSize:"15px"}}class=" top-0 start-100 translate-middle badge border-light rounded-circle bg-danger p-2 ">
+    {cartItems.length}
+
+  </span>
+ </a></Link>                  */}
+
+<button type="button" class="btn btn-light position-relative">
+<Link to="/ays/cart"><i style={{fontSize:"25px"}}  class="fa-solid fa-cart-shopping"></i> </Link><span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-8">{cartItems.length}<span  class="visually-hidden">unread messages</span></span>
+</button>
+        </li>
+        
        
       </ul>
     </div>

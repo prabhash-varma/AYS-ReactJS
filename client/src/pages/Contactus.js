@@ -3,11 +3,14 @@ import HomeNav from '../components/HomeNav.js'
 import './css/Contactus.css'
 import Footer from '../components/Footer.js'
 
+
 function Contactus() {
   return (
     <div>
        <HomeNav/>
 
+      <br></br>
+      <br></br>
       <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly',"margin-top":"70px"}}>
          
       <div style={{width: '700px',display: 'flex',flexDirection: 'column'}} className="contact-info">

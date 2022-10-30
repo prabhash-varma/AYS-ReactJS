@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import HomeNav from "../components/HomeNav.js";
-import Packers from "../components/Packers.js";
+import Packers from "../components/PackersItem.js";
 import Footer from "../components/Footer.js";
 import "./css/PackersAndMovers.css";
 import { store } from "../App.js";
@@ -23,7 +23,7 @@ function PackersAndMovers() {
       <HomeNav />
       <div
         style={{
-          marginTop: "100px",
+          marginTop: "130px",
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-evenly",
@@ -69,7 +69,7 @@ function PackersAndMovers() {
 
 
 
-        <div>
+        <div style={{marginTop:"20px"}}>
           <iframe
             src="https://youtube.com/embed/9zjB-WJSoos"
             frameborder="0"
@@ -132,7 +132,7 @@ function PackersAndMovers() {
               ]);
               console.log(cartItems);
               //alert("Added to Cart!")
-              navigate("/ays/cart");
+              //navigate("/ays/cart");
             }}
           >
             <i
@@ -167,7 +167,7 @@ function PackersAndMovers() {
               ]);
               console.log(cartItems);
               //alert("Added to Cart!")
-              navigate("/ays/cart");
+             // navigate("/ays/cart");
             }}
           >
             <i
@@ -203,7 +203,7 @@ function PackersAndMovers() {
               ]);
               console.log(cartItems);
               //alert("Added to Cart!")
-              navigate("/ays/cart");
+              //navigate("/ays/cart");
             }}
           >
             <i
