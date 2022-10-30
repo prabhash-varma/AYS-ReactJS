@@ -1,8 +1,8 @@
-import React,{ useState, useContext} from 'react'
+import React,{ useState, useContext,useEffect} from 'react'
 import HomeNav from '../components/HomeNav.js'
 import {store} from '../App.js'
 import './css/Orders.css'
-import {Link} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
 
 
 function Orders() {
@@ -10,9 +10,18 @@ function Orders() {
     const gb = useContext(store);
     const [cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist] =gb
 
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+      if(userdetails.length===0){
+        navigate("/ays/login")
+      }
+    },[userdetails])  
+
   return (
     <div>
        <HomeNav/>
+       <div style={{marginTop: "80px"}}></div>
        <div className="cart-header" style={{ display: "flex" }}>
         <h1 style={{ "margin-top": "60px", marginLeft: "50px" }}>
           <i

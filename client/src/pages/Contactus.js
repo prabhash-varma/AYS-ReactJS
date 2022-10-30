@@ -1,10 +1,46 @@
-import React from 'react'
+import React,{useState} from 'react'
 import HomeNav from '../components/HomeNav.js'
 import './css/Contactus.css'
 import Footer from '../components/Footer.js'
-
+import Axios from 'axios'
+import {toast} from 'react-toastify'
 
 function Contactus() {
+
+  const [message,setMessage] = useState({name:"",email:"",message:""})
+
+  const HandleInput = (e)=>{
+    setMessage({...message,[e.target.name]:e.target.value})
+  }
+
+
+  const submitMsgs = (e)=>{
+
+    e.preventDefault();
+
+
+    if(message.name===""){
+      toast.error("Name is required",{position: toast.POSITION.BOTTOM_RIGHT})
+    }
+    else if(message.email==="" || !message.email.includes("@")){
+      toast.error("Email is required",{position: toast.POSITION.BOTTOM_RIGHT})
+    }
+    else if(message.message===""){
+      toast.error("Message is required",{position: toast.POSITION.BOTTOM_RIGHT})
+    }
+    else{
+    Axios.post("http://localhost:3001/messages",{...message}).then((res)=>{
+      console.log(res.data);
+      toast.success("Message sent successfully",{position: toast.POSITION.BOTTOM_RIGHT})
+    }).then((res)=>{
+      setMessage({name:"",email:"",message:""})
+    }).catch((err)=>{
+      toast.error("Error sending message",{position: toast.POSITION.BOTTOM_RIGHT})
+    })
+    }
+
+  }
+
   return (
     <div>
        <HomeNav/>
@@ -55,7 +91,7 @@ function Contactus() {
 
       <div style={{width: '500px',border:"1px solid black","border-radius": "15px"}} className="contact-form">
         <h2 style={{margin:"15px"}}>Send Us a Message</h2>
-        <form>
+        <form onSubmit={submitMsgs}>
           <div className="container">
 
           <div class="mb-3" >
@@ -67,10 +103,13 @@ function Contactus() {
               
               <i class="fa fa-user" style={{fontSize:"20px",marginRight: "6px",marginTop:"3px",color:"black"}} aria-hidden="true"></i> 
               <input
-                type="email"
+                type="text"
+                name="name"
+                value={message.name}
                 class="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
+                onChange={HandleInput}
               />
              
               </div>
@@ -85,10 +124,14 @@ function Contactus() {
               <i class="fa fa-envelope" style={{fontSize:"20px",marginRight: "6px",marginTop:"3px",color:"black"}} aria-hidden="true"></i>
               <input
                 type="email"
+                name="email"
+                value={message.email}
                 class="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
+                onChange={HandleInput}
               />
+
 
               </div>
               
@@ -100,14 +143,14 @@ function Contactus() {
               <label for="exampleInputEmail1" class="form-label">
                 Message
               </label>
-              <textarea id="exampleInputEmail1" class="form-control" rows="5" cols="80"></textarea>
+              <textarea onChange={HandleInput} value={message.message}  class="form-control" name="message" id="exampleInputEmail1" rows="5" cols="80"></textarea>
              
             </div>
             
             <button
               type="submit"
-              class="btn btn-primary"
-              
+             
+              class="btn btn-primary"      
             >
               Send<i style={{marginLeft:"10px"}}class="fa fa-paper-plane" aria-hidden="true"></i>
 

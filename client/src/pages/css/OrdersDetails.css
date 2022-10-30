@@ -1,13 +1,10 @@
-/* .orderdetails{
-    text-align: left;
+.orders-details img{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.image{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-} */
  .data{
     text-align: left;
     margin-left: 40px;
     font-size: 20px;
 }
+
+

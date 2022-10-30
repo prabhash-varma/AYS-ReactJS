@@ -1,6 +1,6 @@
 import React from 'react'
 import MainNav1 from '../components/MainNav1'
-import MainImage from './Images/indeximage.jpg'
+import MainImage from './Images/ays3.png'
 import './css/Main.css'
 import HomeCleaning from './Images/home_cleaning.svg'
 import Appliance from './Images/appliance.svg'

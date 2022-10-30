@@ -64,7 +64,7 @@ function Signup() {
       setAddressMsg("Address is required!");
     } else if (city === "") {
       setCityMsg("City is required!");
-    } else if (state === "") {
+    } else if (state === "select" || state === "") {
       setStateMsg("State is required!");
     } else if (pincode === "" || !pincode.match(/^[0-9]{6}$/)) {
       setPincodeMsg("Enter valid pincode!");
@@ -85,10 +85,9 @@ function Signup() {
             phone,
             address,
             city,
-            password,
             state,
             pincode,
-            password,
+            password
           }).then((res) => {
             console.log(res);
             if (res.data) {
@@ -222,11 +221,11 @@ function Signup() {
                     placeholder="Church Street"
                     // value={user.email}
                     onChange={(e) => {
-                      setEmailMsg("");
+                      setAddressMsg("");
                       handleInputs(e);
                     }}
                   />
-                  <p style={{ color: "red" }}>{emailMsg}</p>
+                  <p style={{ color: "red" }}>{addressMsg}</p>
                 </div>
                 <div style={{ "margin-left": "10px" }} class="mb-3">
                   <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}}  for="exampleInputEmail1" class="form-label">
@@ -241,11 +240,11 @@ function Signup() {
                     placeholder="Mumbai"
                     // value={user.phone}
                     onChange={(e) => {
-                      setPhoneMsg("");
+                      setCityMsg("");
                       handleInputs(e);
                     }}
                   />
-                  <p style={{ color: "red" }}>{phoneMsg}</p>
+                  <p style={{ color: "red" }}>{cityMsg}</p>
                 </div>
               </div>
 
@@ -254,19 +253,48 @@ function Signup() {
                   <label  style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}} for="exampleInputEmail1" class="form-label">
                     State<p style={{color:"red"}}>*</p>
                   </label>
-                  <input
-                    type="text"
-                    name="state"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    placeholder="Andhra Pradesh"
-                    // value={user.state}
-                    onChange={(e) => {
-                      setStateMsg("");
-                      handleInputs(e);
-                    }}
-                  />
+                  <select style={{width: "225px",height:"33px"}} onChange={(e) => {
+                        setStateMsg("");
+                        handleInputs(e)
+                      }} name="state" id="state" className="form-control">
+                    <option value="select">{}</option>
+                      <option value="Andhra Pradesh">Andhra Pradesh</option>
+                      <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                      <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                      <option value="Assam">Assam</option>
+                      <option value="Bihar">Bihar</option>
+                      <option value="Chandigarh">Chandigarh</option>
+                      <option value="Chhattisgarh">Chhattisgarh</option>
+                      <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                      <option value="Daman and Diu">Daman and Diu</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Lakshadweep">Lakshadweep</option>
+                      <option value="Puducherry">Puducherry</option>
+                      <option value="Goa">Goa</option>
+                      <option value="Gujarat">Gujarat</option>
+                      <option value="Haryana">Haryana</option>
+                      <option value="Himachal Pradesh">Himachal Pradesh</option>
+                      <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                      <option value="Jharkhand">Jharkhand</option>
+                      <option value="Karnataka">Karnataka</option>
+                      <option value="Kerala">Kerala</option>
+                      <option value="Madhya Pradesh">Madhya Pradesh</option>
+                      <option value="Maharashtra">Maharashtra</option>
+                      <option value="Manipur">Manipur</option>
+                      <option value="Meghalaya">Meghalaya</option>
+                      <option value="Mizoram">Mizoram</option>
+                      <option value="Nagaland">Nagaland</option>
+                      <option value="Odisha">Odisha</option>
+                      <option value="Punjab">Punjab</option>
+                      <option value="Rajasthan">Rajasthan</option>
+                      <option value="Sikkim">Sikkim</option>
+                      <option value="Tamil Nadu">Tamil Nadu</option>
+                      <option value="Telangana">Telangana</option>
+                      <option value="Tripura">Tripura</option>
+                      <option value="Uttar Pradesh">Uttar Pradesh</option>
+                      <option value="Uttarakhand">Uttarakhand</option>
+                      <option value="West Bengal">West Bengal</option>
+                    </select>
                   <p style={{ color: "red" }}>{stateMsg}</p>
                 </div>
                 <div style={{ "margin-left": "10px" }} class="mb-3">
@@ -274,6 +302,7 @@ function Signup() {
                     Pincode<p style={{color:"red"}}>*</p>
                   </label>
                   <input
+                  style={{height:"33px"}}
                     type="text"
                     name="pincode"
                     class="form-control"

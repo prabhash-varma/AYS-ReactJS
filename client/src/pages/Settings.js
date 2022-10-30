@@ -1,12 +1,16 @@
-import React,{useContext,useState} from 'react'
+import React,{useContext,useState,useEffect} from 'react'
 import HomeNav from '../components/HomeNav.js'
 import {store} from '../App.js'
 import Axios from 'axios';
 import "./css/Profile.css";
 import Footer from '../components/Footer.js'
+import {toast} from 'react-toastify'
+import {useNavigate} from 'react-router-dom'
+
 
 function Settings() {
 
+  const navigate = useNavigate();
   const [cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist]=useContext(store);
 
   const [obj,setObj]= useState({firstname:userdetails.firstName,lastname:userdetails.lastName,email:userdetails.email,phone:userdetails.phone,address:userdetails.address,city:userdetails.city,state:userdetails.state,pincode:userdetails.pincode});
@@ -40,7 +44,7 @@ function Settings() {
       setAddressMsg("Address is required!");
     } else if (obj.city === "") {
       setCityMsg("City is required!");
-    } else if (obj.state === "") {
+    } else if (obj.state === "select" || obj.state === "") {
       setStateMsg("State is required!");
     } else if (obj.pincode === "" || !obj.pincode.match(/^[0-9]{6}$/)) {
       setPincodeMsg("Enter valid pincode!");
@@ -49,14 +53,23 @@ function Settings() {
       setUserDetails({...userdetails,firstName:obj.firstname,lastName:obj.lastname,email:obj.email,phone:obj.phone,address:obj.address,city:obj.city,state:obj.state,pincode:obj.pincode});
 
       Axios.patch(`http://localhost:3001/users/${userdetails.id}`,{firstName:obj.firstname,lastName:obj.lastname,email:obj.email,phone:obj.phone,address:obj.address,city:obj.city,state:obj.state,pincode:obj.pincode}).then((res)=>{
-        alert("Profile updated successfully!");
+        toast.success("Profile updated successfully!",{position: toast.POSITION.BOTTOM_RIGHT});
         console.log(userdetails)
       }).catch((err)=>{
-        alert("Error updating profile!");
+        toast.error("Error in updating profile!",{position: toast.POSITION.BOTTOM_RIGHT});
       })
       
     }
   }
+
+
+
+  useEffect(()=>{
+    if(userdetails.length===0){
+      navigate("/ays/login")
+    }
+  },[userdetails])
+
 
   return (
     <div>
@@ -204,18 +217,48 @@ function Settings() {
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
                       <label htmlFor="sTate">State</label>
-                      <input
-                        type="text"
-                        name="state"
-                        value={obj.state}
-                        className="form-control"
-                        id="sTate"
-                        placeholder="State"
-                        onChange={(e)=>{
-                          setStateMsg("")
-                          handleInputs(e)
-                        }}
-                      />
+                      <select onChange={(e) => {
+                        setStateMsg("");
+                        handleInputs(e)
+                      }} name="state" id="state" className="form-control">
+                    <option value="select">{}</option>
+                      <option value="Andhra Pradesh">Andhra Pradesh</option>
+                      <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                      <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                      <option value="Assam">Assam</option>
+                      <option value="Bihar">Bihar</option>
+                      <option value="Chandigarh">Chandigarh</option>
+                      <option value="Chhattisgarh">Chhattisgarh</option>
+                      <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                      <option value="Daman and Diu">Daman and Diu</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Lakshadweep">Lakshadweep</option>
+                      <option value="Puducherry">Puducherry</option>
+                      <option value="Goa">Goa</option>
+                      <option value="Gujarat">Gujarat</option>
+                      <option value="Haryana">Haryana</option>
+                      <option value="Himachal Pradesh">Himachal Pradesh</option>
+                      <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                      <option value="Jharkhand">Jharkhand</option>
+                      <option value="Karnataka">Karnataka</option>
+                      <option value="Kerala">Kerala</option>
+                      <option value="Madhya Pradesh">Madhya Pradesh</option>
+                      <option value="Maharashtra">Maharashtra</option>
+                      <option value="Manipur">Manipur</option>
+                      <option value="Meghalaya">Meghalaya</option>
+                      <option value="Mizoram">Mizoram</option>
+                      <option value="Nagaland">Nagaland</option>
+                      <option value="Odisha">Odisha</option>
+                      <option value="Punjab">Punjab</option>
+                      <option value="Rajasthan">Rajasthan</option>
+                      <option value="Sikkim">Sikkim</option>
+                      <option value="Tamil Nadu">Tamil Nadu</option>
+                      <option value="Telangana">Telangana</option>
+                      <option value="Tripura">Tripura</option>
+                      <option value="Uttar Pradesh">Uttar Pradesh</option>
+                      <option value="Uttarakhand">Uttarakhand</option>
+                      <option value="West Bengal">West Bengal</option>
+                    </select>
                     </div>
                     <p style={{ color: "red" }}>{stateMsg}</p>
                   </div>
