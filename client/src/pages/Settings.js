@@ -4,7 +4,7 @@ import { store } from "../App.js";
 import axios from "axios";
 import "./css/Settings.css";
 import Footer from "../components/Footer.js";
-import {toast} from 'react-toastify'
+import {toast} from "react-toastify";
 
 
 function Settings() {
@@ -16,9 +16,8 @@ function Settings() {
     orderslist,
     setOrderslist,
   ] = useContext(store);
- 
+ console.log("hiii olooonsf",userdetails)
   const [imageurl, setImageurl] = useState(`${userdetails.imgurl}`);
-
   if (imageurl=="undefined")
     setImageurl("https://bootdey.com/img/Content/avatar/avatar7.png");
   
@@ -31,8 +30,8 @@ function Settings() {
     await axios.post(
       "https://api.cloudinary.com/v1_1/dy27czstf/image/upload", formData).then((response)=>
       {
-          setImageurl(response.data.secure_url);
-          axios.patch(`http://localhost:3001/users/${userdetails.id}`,{imgurl:response.data.secure_url})
+        axios.patch(`http://localhost:3001/users/${userdetails.id}`,{imgurl:response.data.secure_url})
+       setImageurl(response.data.secure_url);
       })
   }
 
@@ -90,6 +89,7 @@ function Settings() {
         city: obj.city,
         state: obj.state,
         pincode: obj.pincode,
+        imgurl:imageurl,
       });
 
       axios.patch(`http://localhost:3001/users/${userdetails.id}`, {
@@ -101,6 +101,7 @@ function Settings() {
         city: obj.city,
         state: obj.state,
         pincode: obj.pincode,
+        imgurl:imageurl,
       })
         .then((res) => {
           toast.success("Profile updated successfully!",{position: toast.POSITION.BOTTOM_RIGHT});
@@ -143,6 +144,7 @@ function Settings() {
                         style={{ backgroundImage: `url(${imageurl})` }}>
                         <i className="fa fa-camera icon"></i><span>Change Image</span>
                       </div>
+
                           </label>
                        <input type="file" accept="Image/*" name="filetoupload" id="filetoupload" onChange={(e)=>{Change(e.target.files[0]);
         }}></input>
@@ -292,64 +294,24 @@ function Settings() {
                       </div>
                       <p style={{ color: "red" }}>{cityMsg}</p>
                     </div>
-                    
-
-
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div className="form-group">
-                      <label htmlFor="sTate">State</label>
-                      <select value={obj.state} onChange={(e) => {
-                        setStateMsg("");
-                        handleInputs(e)
-                      }} name="state" id="state" className="form-control">
-                    <option value="select">{}</option>
-                      <option value="Andhra Pradesh">Andhra Pradesh</option>
-                      <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                      <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                      <option value="Assam">Assam</option>
-                      <option value="Bihar">Bihar</option>
-                      <option value="Chandigarh">Chandigarh</option>
-                      <option value="Chhattisgarh">Chhattisgarh</option>
-                      <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                      <option value="Daman and Diu">Daman and Diu</option>
-                      <option value="Delhi">Delhi</option>
-                      <option value="Lakshadweep">Lakshadweep</option>
-                      <option value="Puducherry">Puducherry</option>
-                      <option value="Goa">Goa</option>
-                      <option value="Gujarat">Gujarat</option>
-                      <option value="Haryana">Haryana</option>
-                      <option value="Himachal Pradesh">Himachal Pradesh</option>
-                      <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                      <option value="Jharkhand">Jharkhand</option>
-                      <option value="Karnataka">Karnataka</option>
-                      <option value="Kerala">Kerala</option>
-                      <option value="Madhya Pradesh">Madhya Pradesh</option>
-                      <option value="Maharashtra">Maharashtra</option>
-                      <option value="Manipur">Manipur</option>
-                      <option value="Meghalaya">Meghalaya</option>
-                      <option value="Mizoram">Mizoram</option>
-                      <option value="Nagaland">Nagaland</option>
-                      <option value="Odisha">Odisha</option>
-                      <option value="Punjab">Punjab</option>
-                      <option value="Rajasthan">Rajasthan</option>
-                      <option value="Sikkim">Sikkim</option>
-                      <option value="Tamil Nadu">Tamil Nadu</option>
-                      <option value="Telangana">Telangana</option>
-                      <option value="Tripura">Tripura</option>
-                      <option value="Uttar Pradesh">Uttar Pradesh</option>
-                      <option value="Uttarakhand">Uttarakhand</option>
-                      <option value="West Bengal">West Bengal</option>
-                    </select>
+                      <div className="form-group">
+                        <label htmlFor="sTate">State</label>
+                        <input
+                          type="text"
+                          name="state"
+                          value={obj.state}
+                          className="form-control"
+                          id="sTate"
+                          placeholder="State"
+                          onChange={(e) => {
+                            setStateMsg("");
+                            handleInputs(e);
+                          }}
+                        />
+                      </div>
+                      <p style={{ color: "red" }}>{stateMsg}</p>
                     </div>
-                    <p style={{ color: "red" }}>{stateMsg}</p>
-                  </div>
-
-
-
-
-
-
-
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                       <div className="form-group">
                         <label htmlFor="zIp">Zip Code</label>

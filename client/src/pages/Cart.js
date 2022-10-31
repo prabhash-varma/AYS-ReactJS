@@ -386,7 +386,7 @@ function Cart() {
                     <h3>Payment Mode</h3>
                   </label>
 
-                  <div style={{ display: "flex", justifyContent: "center" }}>
+                  <div style={{display: "flex", justifyContent: "center" }}>
                   <input
                     type="radio"
                     name="payment"
@@ -396,10 +396,9 @@ function Cart() {
                 
                   />
                   
-                  <label for="exampleInputEmail1" class="form-label
-                  ">
-                    <p style={{fontSize: "18px"}}>Cash On Delivery</p>
-                  </label>
+                  <div>
+                    <p style={{fontSize:"20px",marginTop:"10px"}}>Cash On Delivery</p>
+                  </div>
                  </div>
                 </div>
 
