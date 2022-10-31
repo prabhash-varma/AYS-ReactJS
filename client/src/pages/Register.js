@@ -2,8 +2,9 @@ import React,{useState} from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import MainNav from "../components/MainNav";
 import Builder from "./Images/builder.png";
-import "./css/Signup.css";
+import "./css/Register.css";
 import Axios from "axios";
+
 
 function Register() {
 
@@ -59,28 +60,36 @@ function Register() {
 
     if (firstName === "") {
       setFirstNameMsg("First name is required!");
+      console.log("First name is required!");
     } else if (lastName === "") {
       setLastNameMsg("Last name is required!");
-    }else if (gender === "" || gender==="select") {
-      setGenderMsg("Select your gender!");
-    } else if (profession === "") {
+      console.log("Last name is required!");
+     }
+    else if (profession === "") {
       setProfessionMsg("Enter your profession!");
+      console.log("Profession is required!");
     } 
     else if (email === "" || !email.includes("@")) {
       setEmailMsg("Enter valid email!");
+      console.log("Valid email is required!");
     } else if (phone === "" || !phone.match(/^[0-9]{10}$/)) {
       setPhoneMsg("Enter valid phone number!");
+      console.log("Valid phone number is required!");
     } else if (address === "") {
       setAddressMsg("Address is required!");
+      console.log("Address is required!");
     } else if (city === "") {
       setCityMsg("City is required!");
+      console.log("City is required!");
     } else if (state === "select" || state === "") {
       setStateMsg("State is required!");
+      console.log("State is required!");
     } else if (pincode === "" || !pincode.match(/^[0-9]{6}$/)) {
       setPincodeMsg("Enter valid pincode!");
+      console.log("Valid pincode is required!");
     }
    else {
-      
+          console.log("user",user)
           Axios.post(`http://localhost:3001/employees`, {
             firstName,
             lastName,
@@ -94,15 +103,12 @@ function Register() {
             pincode
           }).then((res) => {
             console.log(res);
-            if (res.data) {
               alert("We received your details. We will contact you soon!");
               setUser({firstName:"",lastName:"",gender:"",profession:"",email:"",phone:"",address:"",city:"",state:"",pincode:""});
-            } else {
-              alert("Something went wrong");
-            }
+              navigate("/");
           });
         } 
-      }
+  }
   
 
 
@@ -180,10 +186,10 @@ function Register() {
                     Gender<p style={{color:"red"}}>*</p>
                   </label>
 
-                  <select style={{width:"225px"}} name="gender" onChange={(e)=>{
+                  <select style={{width:"225px"}} name="gender" value={user.gender} onChange={(e)=>{
                     setGenderMsg("");
                     handleInputs(e);
-                  }} class="form-select" aria-label="Default select example">
+                  }} class="form-select">
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                   <option value="Others">Others</option>

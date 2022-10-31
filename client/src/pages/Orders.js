@@ -60,7 +60,7 @@ function Orders() {
               })}
             </div>
             ) : (
-              <h1 style={{marginTop: "100px"}}>No Orders Placed</h1>
+              <h1 style={{marginTop: "100px"}}>No Orders Placed <i className="far fa-meh-blank"></i></h1>
             )}
         </div>
     </div>

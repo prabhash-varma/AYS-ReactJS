@@ -33,8 +33,8 @@ function Home() {
   return (
     <div>
       <HomeNav/>
-      <img id="MainImage" src={MainImage} alt="MainImage" />
-
+      <img style={{marginTop:"60px"}} id="MainImage" src={MainImage} alt="MainImage" />
+    
      
       <h1 style={{"margin-top":"65px",marginBottom:"15px"}}>Our Services</h1>
 

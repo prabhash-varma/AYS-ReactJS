@@ -59,6 +59,75 @@
       "password": "123456",
       "state": "Assam",
       "pincode": "123456"
+    },
+    {
+      "id": 2376006468182,
+      "firstName": "john",
+      "lastName": "doe",
+      "email": "john1@gmail.com",
+      "password": "12345",
+      "state": "AP",
+      "pincode": "123456"
+    },
+    {
+      "id": 4214311072340,
+      "firstName": "john",
+      "lastName": "doe",
+      "email": "johndoe@gmail.com",
+      "password": "12345",
+      "state": "Andhra pradesh",
+      "pincode": "533445"
+    },
+    {
+      "id": 3236770319395,
+      "firstName": "prabhash",
+      "lastName": "varma",
+      "email": "prabhash@gmail.com",
+      "phone": "9014692837",
+      "address": "old street",
+      "city": "chennai",
+      "state": "state",
+      "pincode": "533445",
+      "password": "12345"
+    },
+    {
+      "id": 7389854425145,
+      "firstName": "prabhash",
+      "lastName": "varma",
+      "email": "prabhashvarma@gmail.com",
+      "phone": "9014692837",
+      "address": "old street",
+      "city": "chennai",
+      "state": "Arunachal Pradesh",
+      "pincode": "544332",
+      "password": "12345",
+      "imgurl": "https://res.cloudinary.com/dy27czstf/image/upload/v1667184766/plvorcyyqbc9dtmev5zl.webp"
+    },
+    {
+      "id": 9536447105426,
+      "firstName": "johnjoe",
+      "lastName": "varma",
+      "email": "johnvarma@gmail.com",
+      "phone": "9014692837",
+      "address": "old street",
+      "city": "chennai",
+      "state": "AP",
+      "pincode": "543214",
+      "password": "12345",
+      "imgurl": "https://res.cloudinary.com/dy27czstf/image/upload/v1667185179/i2i8zbe3i5yfnit92cyh.webp"
+    },
+    {
+      "id": 3730957431586,
+      "firstName": "john varma",
+      "lastName": "doe",
+      "email": "sai@gmail.com",
+      "phone": "9014692831",
+      "address": "old street",
+      "city": "chennai",
+      "state": "Assam",
+      "pincode": "123456",
+      "password": "12345",
+      "imgurl": "https://res.cloudinary.com/dy27czstf/image/upload/v1667191875/gmqvxhvkt0erl6lxlsf5.webp"
     }
   ],
   "messages": [
@@ -85,6 +154,18 @@
       "email": "ewf@gmail.com",
       "message": "12345",
       "id": 4
+    },
+    {
+      "name": "prabhash",
+      "email": "varma@gmail.com",
+      "message": "hi",
+      "id": 5
+    },
+    {
+      "name": "prabahsh",
+      "email": "varma@gmail.com",
+      "message": "hi",
+      "id": 6
     }
   ],
   "employees": [
@@ -113,6 +194,32 @@
       "state": "Andhra Pradesh",
       "pincode": "123456",
       "id": 2
+    },
+    {
+      "firstName": "john",
+      "lastName": "doe",
+      "gender": "Female",
+      "profession": "plumber",
+      "email": "john@gmail.com",
+      "phone": "9014692837",
+      "address": "old street",
+      "city": "chennai",
+      "state": "Assam",
+      "pincode": "543123",
+      "id": 3
+    },
+    {
+      "firstName": "john",
+      "lastName": "doe",
+      "gender": "",
+      "profession": "plumber",
+      "email": "john@gmail.com",
+      "phone": "9014682736",
+      "address": "Church street",
+      "city": "chennai",
+      "state": "Andhra Pradesh",
+      "pincode": "123456",
+      "id": 4
     }
   ]
 }

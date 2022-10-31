@@ -1,188 +1,137 @@
-import React,{useState,useContext} from "react";
+import React, { useState,useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./css/Login.css";
+import MainImage from "./Images/indeximage.jpg";
 import Builder from "./Images/builder.png";
 import MainNav from "../components/MainNav";
-import Axios from 'axios'
-import {store} from '../App.js'
-
+import Axios from "axios";
+import {store}from "../App.js" 
+import HomeNav from "../components/HomeNav";
+import {toast} from 'react-toastify'
 
 function Login() {
   const navigate = useNavigate();
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [msg, setMsg] = useState("");
+  const [pmsg, setPmsg] = useState("");
+  const [imsg, setImsg] = useState("");
   const [cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist]=useContext(store);
-  
-  const [email,setEmail]=useState("");
-  const [password,setPassword]=useState("");
-  const [msg,setMsg]=useState("");
-  const [pmsg,setPmsg]=useState("");
-  const [imsg,setImsg]=useState("");
- 
   const [passwordType, setPasswordType] = useState("password");
-  
-  
-  const togglePassword =()=>{
-    if(passwordType==="password")
-    {
-     setPasswordType("text")
-     return;
+ 
+  const togglePassword = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+      return;
     }
-    setPasswordType("password")
-  }
+    setPasswordType("password");
+  };
 
-
-  const submit = (e)=>{
+  const submitHandler = (e) => {
+   
     e.preventDefault();
-    console.log(email,password);
+    console.log(email, password);
 
-    if(email===""){
+    if (email === "") {
       e.preventDefault();
       setMsg("Enter your email!");
       console.log("enter email");
-    }
-    else if(!email.includes("@")){
+    } else if (!email.includes("@")) {
       e.preventDefault();
       setMsg("Enter a valid email!");
       console.log("enter valid email");
-    }
-    else if(password===""){
+    } else if (password === "") {
       e.preventDefault();
       setPmsg("Enter your password!");
       console.log("enter password");
-    }
-    
-    else{
-      
-      Axios.get(`http://localhost:3001/users?email=${email}&password=${password}`).then((res)=>{
-      
+    } 
+    else {
+      Axios.get(
+        `http://localhost:3001/users?email=${email}&password=${password}`
+      ).then((res) => {
         console.log(res.data);
-        
-        if(res.data.length>0){
-          setUserDetails(res.data[0]);
+
+        if (res.data.length > 0) {
+          setUserDetails(res.data[0])
           alert("Login successful!");
-          navigate('/ays/home');
-        }
-        else{
-          setImsg("Invalid email or password!");
+          navigate("/ays/home");
+        } else {
+          //setImsg("Invalid email or password!");
+          toast.error('Invalid Username or Password!', {position: toast.POSITION.BOTTOM_RIGHT})
           console.log("Invalid email or password!");
         }
-      })
-
+      });
     }
-  }
-
+  };
 
   return (
-
-
-    <div >
-
+    <>
     <MainNav/>
-    <div className="login" >
-      <div>
-
-          <img style={{width:"500px",height:"700px"}} src={Builder} alt="logo" />
-      </div>
-
-      <div id="formdiv">
-        <h1 style={{"margin-bottom":"50px","margin-top":"30px"}}>Login</h1>
+     <img style={{height:"650px"}} src="./indeximage.jpg"/>
         <div>
-          <h5 style={{color:"red"}}>{imsg}</h5>
+          {/* <h5 style={{ color: "red" }}>{imsg}</h5> */}
         </div>
-        <form onSubmit={submit} >
-          <div className="container">
-            <div class="mb-3">
-              <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}} for="exampleInputEmail1" class="form-label">
-                Email address<p style={{color:"red"}}>*</p>
-              </label>
-              <div style={{display:"flex",justifyContent: "center"}}>
-              {/* <i class="fa fa-user" style={{fontSize:"20px",marginRight: "6px",marginTop:"3px",color:"black"}} aria-hidden="true"></i> */}
-              <input
-                type="text"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                onChange={(e)=>{
-                  setMsg("")
-                  setImsg("")
-                  setEmail(e.target.value);
-                }}
-              />
-              </div>
-              
-              <div id="emailHelp" class="form-text">
-                We'll never share your email with anyone else.
-              </div>
-              <p style={{color:"red"}}>{msg}</p>
-            </div>
 
+        <form className="form_l" onSubmit={(e)=>{
+          submitHandler(e)
+        }}>
+          <h3>Login Here</h3>
+          <p style={{ color: "red" }}>{pmsg}</p>
+          <div className="input__box">
+            <label className="label_l" for="username"><p className="names">Username</p></label>
+            <input className="input_l"
+              type="text"
+              id="username"
+              name="email"
+              placeholder="Email"
+              required="required"
+              onChange={(e) => {
+                setMsg("")
+                setImsg("")
+                setEmail(e.target.value);
+              }}
+            />
+              <p style={{ color: "red" }}>{msg}</p>
+          </div>
 
+         
 
-            <div class="mb-3">
-              <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}} for="exampleInputPassword1" class="form-label">
-                Password<p style={{color:"red"}}>*</p>
-              </label>
-              
-              <div style={{display:"flex",flexDirection:"row"}}>
-              {/* <i class="fas fa-key" style={{fontSize:"20px",marginRight: "6px",marginTop:"3px", color:"black"}} aria-hidden="true"></i> */}
-             <input
-                type={passwordType}
-                class="form-control"
-                id="exampleInputPassword1"
-                onChange={(e)=>{
-                  setPmsg("")
-                  setImsg("")
-                  setPassword(e.target.value);
-                }}
+          <div className="input__box">
+            <label for="password"><p className="names">Password</p></label>
+            <input className="input_l"
+              type={passwordType}
+              id="password"
+              name="password"
+              required="required"
+              placeholder="Password"
+              onChange={(e) => {
+                setPmsg("")
+                setImsg("")
+                setPassword(e.target.value);
+              }}
+            />
+             <p style={{ color: "red" }}>{pmsg}</p>
+          </div>
 
-              />
-               
-            
-             <div  style={{"margin-top":"3px",cursor: "pointer"}} onClick={togglePassword}>
+          {/* <div  style={{"margin-top":"3px",cursor: "pointer"}} onClick={togglePassword}>
                 { passwordType==="password"? <i className="fa fa-eye-slash" style={{"font-size":"18px"}}></i> :<i className="fa fa-eye" style={{"font-size":"18px"}}></i> }
               </div>
-              
-            </div>
-              <p style={{color:"red"}}>{pmsg}</p>
-            </div>
-            <div class="mb-3 form-check">
-              {/* <input
-                type="checkbox"
-                class="form-check-input"
-                id="exampleCheck1"
-              /> */}
-              {/* <label class="form-check-label" for="exampleCheck1">
-                Check me out
-              </label> */}
-            </div>
-            <button
-              type="submit"
-              class="btn btn-primary"
-              onClick={()=>{
-                submit();
-              }}
-            >
-              Submit
+               */}
+          {/* </div> */}
+
+         
+    
+          <div className="input__box">
+            <button type="submit" className="button_l">
+              Log in
             </button>
           </div>
-        </form>
+          <p class="forget">Don't have an account? <Link to="/signup">Sign up</Link> </p>
         
-        <div style={{marginTop:"20px",display:"flex",flexDirection:"row",justifyContent:"center"} }>
-          <div>
-            <p>Don't have an account? </p>
-          </div>
-          <div>
-          <Link to="/signup"><p id="signup"><u>Sign Up</u></p></Link>
-
-          </div>
-        </div>
-      </div>
-     
-      
-    </div>
-
-
-    </div>
+        </form>
+       
+</>
   );
 }
 

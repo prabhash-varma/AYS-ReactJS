@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "../pages/css/Profile.css";
+import { store } from "../App";
 
 function ProfileComp(props) {
+  const [
+    cartItems,
+    setCartItems,
+    userdetails,
+    setUserDetails,
+    orderslist,
+    setOrderslist,
+  ] = useContext(store);
+
+  
+  const [imageurl, setImageurl] = useState(`${userdetails.imgurl}`);
+  if (imageurl=="undefined")
+    setImageurl("https://bootdey.com/img/Content/avatar/avatar7.png");
   return (
     <div style={{ paddingTop: "3em" }}>
       <div className="container">
@@ -12,10 +26,12 @@ function ProfileComp(props) {
                 <div className="account-settings">
                   <div id= "user-profile" className="user-profile">
                     <div id="user-avatar" className="user-avatar">
-                      <img id="avatar-img"
-                        src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                     
-                      />
+                      <img id="avatar-img" style={{    borderradius: "50%",
+    height: "150px",
+    width: "150px"}}
+                        // src="https://bootdey.com/img/Content/avatar/avatar7.png"/>
+                        src={imageurl}/>
+
                     </div>
                     <h5 id="user-name" className="user-name">{props.firstName}</h5>
                     <h6 id="user-email" className="user-email">{props.email}</h6>
@@ -23,7 +39,8 @@ function ProfileComp(props) {
                   <div id="about" className="about">
                     <h5 id="h5">About</h5>
                     <p id="p">
-                      I'm Yuki. Full Stack Designer I enjoy creating
+                      I'm {userdetails.firstName} {userdetails.lastName
+                      }. Full Stack Designer I enjoy creating
                       user-centric, delightful and human experiences.
                     </p>
                   </div>

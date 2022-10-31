@@ -58,7 +58,7 @@ Logout</a></li></Link>
           </ul>
         </li>
         <li className="nav-item">
-        <Link to="/ays/cart"><a className="nav-link active position-relative" > <i  style={{marginRight:"5px",fontSize:"18px"}} class="fa-solid fa-cart-shopping"></i> <span  style={{color:"white" ,fontSize:"10px"}}class=" top-0 start-100 translate-middle badge rounded-circle bg-danger p-2 ">
+        <Link to="/ays/cart"><a className="nav-link active position-relative" > <i  style={{marginRight:"5px",fontSize:"23px"}} class="fa-solid fa-cart-shopping"></i> <span  style={{color:"white" ,fontSize:"15px",backgroundColor:"rgba(255,103,108.977"}} class=" top-0 start-100 translate-middle badge rounded-circle">
     {cartItems.length}
 
   </span>
