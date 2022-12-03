@@ -54,7 +54,7 @@ else{
             <div style={{marginTop:"70px",display: 'flex',justifyContent: 'center'}}>
             <input style={{width:"400px",height:"50px",borderRadius:"5px"}} onChange={(e)=>{
                 setSearch(e.target.value)
-            }} type="text" name="searchCustomer" placeholder="Search Customer"/>
+            }} type="text" name="searchCustomer" placeholder="Search Orders..."/>
             {/* <button type="button" style={{borderRadius:"5px",height:"48px"}} onClick={()=>{
                 updateList();
             }} class="btn btn-success">Search</button> */}

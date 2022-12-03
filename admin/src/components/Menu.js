@@ -98,6 +98,17 @@ function Menu() {
                 </p>
               </a>
             </li>
+            <li style={{cursor: 'pointer'}} className="nav-item" onClick={()=>{
+              navigate('/messages')
+            }}>
+              <a className="nav-link">
+                <i className="nav-icon fas fa-th" />
+                <p>
+                  Messages
+                  <span className="right badge badge-danger">New</span>
+                </p>
+              </a>
+            </li>
             <li className="nav-item">
               <a href="#" className="nav-link">
                 <i  className="nav-icon fas fa-th" />
