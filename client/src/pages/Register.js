@@ -100,7 +100,8 @@ function Register() {
             address,
             city,  
             state,
-            pincode
+            pincode,
+            free:"0"
           }).then((res) => {
             console.log(res);
               alert("We received your details. We will contact you soon!");
@@ -131,6 +132,7 @@ function Register() {
           <h1 style={{ "margin-bottom": "50px", "margin-top": "30px" }}>
             Register as Professional
           </h1>
+          <Link to="/login_employee"> login as employee</Link>
           <form onSubmit={submitHandler}>
             <div className="container">
               <div style={{ display: "flex", justifyContent: "center" }}>

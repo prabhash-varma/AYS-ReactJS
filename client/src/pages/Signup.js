@@ -109,10 +109,8 @@ function Signup() {
       <img style={{ height: "650px" }} src="./indeximage.jpg" />
       <form className="form_s" onSubmit={submitHandler}>
 
-
-        <div style={{marginTop:"40px"}}></div>
-
-        <h3 style={{marginTop:"25px"}}>Register Here</h3>
+        {/* <div style={{marginTop:"40px"}}></div> */}
+        <h3 style={{marginTop:"-29px"}}>Register Here</h3>
 
         <div className="flex-container">
           <div class="input__box inline_1 flex-child">
@@ -160,7 +158,7 @@ function Signup() {
             <p className="name">Email</p>
 
             <input
-              type="text"
+              type="email"
               name="email"
               required="required"
               className="input_s"
@@ -274,7 +272,7 @@ function Signup() {
             <p className="name">  Pincode</p>
 
             <input
-              type="text"
+              type="number"
               name="pincode"
               className="input_s"
               required="required"

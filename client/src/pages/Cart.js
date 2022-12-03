@@ -6,6 +6,8 @@ import "./css/Cart.css";
 import {useNavigate} from 'react-router-dom'
 import CartAnimation from "./Images/CartAnimation.gif"
 import {toast} from 'react-toastify'
+import Axios from "axios";
+
 
 
 function Cart() {
@@ -17,6 +19,7 @@ function Cart() {
   const [stateMsg, setStateMsg] = useState("");
   const [pincodeMsg, setPincodeMsg] = useState("");
   const [address1Msg, setAddress1Msg] = useState("");
+
   
   const globalState = useContext(store);
   const [cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist] = globalState;
@@ -83,26 +86,40 @@ function Cart() {
     else{
     
       //setOrderItems({...orderItems,});
-
-      console.log(orderItems);
-      orderItems.add_orderItems.map((cartItem)=>{
-        console.log("1")
-        setOrderslist((prevlist)=>{
-          return(
-          [...prevlist,{add_name:orderItems.add_name,add_email:orderItems.add_email,add_phone:orderItems.add_phone,add_address1:orderItems.add_address1,add_address2:orderItems.add_address2,add_state:orderItems.add_state,add_pincode:orderItems.add_pincode,add_date:orderItems.add_date,add_orderItems:cartItem,add_total:orderItems.add_total,...cartItem}]
-          )
-        });
-      })
-
-      setCartItems([]);
-
-      console.log(orderslist);
+      // orderItems.add_orderItems.map((cartItem)=>{
+      //   console.log("1")
+      //   setOrderslist((prevlist)=>{
+      //     return(
+      //     [...prevlist,{add_name:orderItems.add_name,add_email:orderItems.add_email,add_phone:orderItems.add_phone,add_address1:orderItems.add_address1,add_address2:orderItems.add_address2,add_state:orderItems.add_state,add_pincode:orderItems.add_pincode,add_date:orderItems.add_date,add_orderItems:cartItem,add_total:orderItems.add_total,...cartItem}]
+      //     )
+      //   });
+      // })
+  
+  const find =async() => {
+      for(var i =0;i< cartItems.length;i++)
+      {
+        // const empdetails = ""
+         const item = cartItems[i]
+         const res = await Axios.get(`http://localhost:3001/employees?profession=${item.type}&free=0`)
+         const emp = res.data[0]  
+        if(res.data.length >0)
+        {
+          await Axios.patch(`http://localhost:3001/employees/${emp.id}`,{"free":1})    
+          // await Axios.post(`http://localhost:3001/orders`, {item,userdetails,emp})
+          await Axios.post(`http://localhost:3001/orders`, {status:0,iname:item.name,iimg:item.img,itype:item.type,ufname:userdetails.firstName,ulname:userdetails.lastName,uemail:userdetails.email,uphone:userdetails.phone,eid:emp.id,efname:emp.firstName,elname:emp.lastName,eemail:emp.email,ephone:emp.phone,eprofession:emp.eprofession,ord_name:orderItems.add_name,ord_email:orderItems.add_email,ord_phone:orderItems.add_phone,ord_address1:orderItems.add_address1,ord_address2:orderItems.add_address2,ord_state:orderItems.add_state,ord_pincode:orderItems.add_pincode,ord_date:orderItems.add_date})
+        }
+        else{
+        await Axios.post(`http://localhost:3001/orders`, {status:0,iname:item.name,iimg:item.img,itype:item.type,ufname:userdetails.firstName,ulname:userdetails.lastName,uemail:userdetails.email,uphone:userdetails.phone,eemail:"",ord_name:orderItems.add_name,ord_email:orderItems.add_email,ord_phone:orderItems.add_phone,ord_address1:orderItems.add_address1,ord_address2:orderItems.add_address2,ord_state:orderItems.add_state,ord_pincode:orderItems.add_pincode,ord_date:orderItems.add_date})
+        // await Axios.post(`http://localhost:3001/orders`, {item,userdetails,emp:"No employee available"})
+      }
+      }
+    }
+    find()
+    setCartItems([]);
       alert("Ordered Successfully");
-      navigate("/ays/orders")
+      navigate("/ays/home")
     }
   }
-
-
   useEffect(()=>{
       cartItems.forEach((item)=>{
        let i= item.price.replace("₹ ","");
@@ -116,6 +133,7 @@ function Cart() {
       setOrderItems(previtem=>{
         return {...previtem,add_total:sum}
         }
+
       )
   },[cartItems])
 

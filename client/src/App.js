@@ -4,7 +4,10 @@ import './App.css';
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Main from './pages/Main'
 import Register from './pages/Register'
+import Employee_login from './pages/Employee_login'
+import Employee_home from './pages/Employee_home'
 import Login from './pages/Login'
+import Work from './Work';
 import Signup from './pages/Signup'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -23,12 +26,9 @@ import Orders from'./pages/Orders'
 import Settings from './pages/Settings'
 import PageNotFound from './pages/PageNotFound'
 import OrderDetails from './pages/OrderDetails';
-
-
-
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 
 export const store=createContext();
@@ -38,14 +38,18 @@ function App() {
   const [cartItems,setCartItems] =useState([]);
   const [orderslist,setOrderslist] =useState([])
   const [userdetails,setUserDetails] =useState({email:"",password:""});
+  const [empdetails,setempDetails] =useState({email:"",password:""});
 
   return (
     <div className="App">
-      <store.Provider value={[cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist]}>
+      <store.Provider value={[cartItems,setCartItems,userdetails,setUserDetails,empdetails,setempDetails,orderslist,setOrderslist]}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main/>}/>
           <Route path="/register" element={<Register/>}/>
+          <Route path="/login_employee" element={<Employee_login/>}/>
+          <Route path="/Employee_home" element={<Employee_home/>}/>
+          <Route path="/work" element={<Work/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/ays/home" element={<Home/>}/>

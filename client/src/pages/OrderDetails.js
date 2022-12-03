@@ -12,6 +12,60 @@ function OrderDetails() {
   
   const [cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist]  = useContext(store);
   let {orderid} = useParams();
+  
+  const render = (item) =>{
+    if(item.eemail != "")
+   return(  
+         <div style={{display: "flex",flexDirection: "row",justifyContent: "space-evenly"}}>
+         <div style={{display: "flex", flexDirection: "column","justify-content":"center",alignItems: "flex-start"}}>
+        <h4>Ordered Service : {item.iname}</h4>                        
+       <h4>Email: {item.ord_email}</h4>
+       <h4>Phone: {item.ord_phone}</h4>                        
+       <h2 style={{marginTop:"20px"}}>Address:</h2>
+       <h5>{item.ord_address1}</h5>                        
+       <h5>{item.ord_address2}</h5>                                               
+       <h5>{item.ord_state}</h5>
+       <h5>{item.ord_pincode}</h5>  
+       <h4>Technician name : {item.efname} {item.elname}</h4>
+       <h4>Technician phone number : {item.ephone}</h4>
+       <h4>Technician email : {item.eemail}</h4>
+       <div style={{display:"flex",justifyContent:"space-evenly"}}>
+         <div style={{marginRight:"20px"}}>
+          <button type="button" class="btn btn-success" onClick={()=>{ navigate('/ays/contactus')}} style={{marginTop:"20px"}}>Need Help?</button>
+         </div>
+         <div >
+          <button type="button" class="btn btn-danger" style={{marginTop:"20px"}}>Cancel Order</button>
+         </div>
+       </div>
+       </div>
+       <div className="orders-details" style={{display: 'flex',flexDirection:"column",justifyContent: 'center',alignItems: 'center'}}>
+       <img style={{width:"300px",height:"200px",marginBottom:"10px"}} src={item.iimg}/>
+       <h3>{item.cost}</h3>
+       {item.status==0? <h3>incomplete</h3>:<h3>Completed</h3>}
+       
+
+    </div>
+   </div>
+ )
+ else
+ return(
+       <div style={{display: "flex",flexDirection: "row",justifyContent: "space-evenly"}}>
+        <div style={{display: "flex", flexDirection: "column","justify-content":"center",alignItems: "flex-start"}}>
+         <h4>Ordered Service : {item.iname}</h4>                        
+         <h4>Email: {item.ord_email}</h4>
+         <h4>Phone: {item.ord_phone}</h4>     
+         <h2> We are sorry for the inconvinience</h2>
+         <h2>Currently, there are no technicians available for the requested service </h2>
+         <h2>Please try after some time</h2>           
+         <div style={{display:"flex",justifyContent:"space-evenly"}}>
+       </div>
+       </div>
+       <div className="orders-details" style={{display: 'flex',flexDirection:"column",justifyContent: 'center',alignItems: 'center'}}>
+       <img style={{width:"300px",height:"200px",marginBottom:"10px"}} src={item.iimg}/>       
+    </div>
+   </div>
+)
+  }
 
 
   return (
@@ -30,52 +84,11 @@ function OrderDetails() {
 
       <hr style={{ width: "900px", height: "2px" }}></hr>
       <div style={{marginTop:"40px"}}>
-              {orderslist.map((item,key)=>{
-
-                console.log(key)
-                return(
-              <div className='orderdetails'>
-                  { (key==orderid )&&(  
-                  <div style={{display: "flex",flexDirection: "row",justifyContent: "space-evenly"}}>
-                     <div style={{display: "flex", flexDirection: "column","justify-content":"center",alignItems: "flex-start"}}>
-                        <h4>Ordered Service : {item.name}</h4>
-                        
-                        <h4>Email: {item.add_email}</h4>
-                        <h4>Phone: {item.add_phone}</h4>
-
-                        
-                        <h2 style={{marginTop:"20px"}}>Address:</h2>
-                        <h5>{item.add_address1}</h5>
-                        
-                        <h5>{item.add_address2}</h5>
-                        
-                       
-                        <h5>{item.add_state}</h5>
-                        
-                        <h5>{item.add_pincode}</h5>
-                     
-                        <div style={{display:"flex",justifyContent:"space-evenly"}}>
-                          <div style={{marginRight:"20px"}}>
-                            <button type="button" class="btn btn-success" onClick={()=>{
-                              navigate('/ays/contactus')
-                            }} style={{marginTop:"20px"}}>Need Help?</button>
-                          </div>
-                          <div >
-                            <button type="button" class="btn btn-danger" style={{marginTop:"20px"}}>Cancel Order</button>
-                          </div>
-
-                        </div>
-
-                     </div>
-
-                     <div className="orders-details" style={{display: 'flex',flexDirection:"column",justifyContent: 'center',alignItems: 'center'}}>
-                        <img style={{width:"300px",height:"200px",marginBottom:"10px"}} src={item.img}/>
-                        <h3>{item.price}</h3>
-
-                     </div>
-                  </div>)
-              }
-              </div>
+          {orderslist.map((item,key)=>{
+           return(
+                   <div className='orderdetails'>
+                    { (key==orderid )&& render(item)  }           
+                   </div>
                 )
             
               })}
