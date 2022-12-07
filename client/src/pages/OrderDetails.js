@@ -51,9 +51,12 @@ function OrderDetails() {
          <h4>Ordered Service : {item.iname}</h4>                        
          <h4>Email: {item.ord_email}</h4>
          <h4>Phone: {item.ord_phone}</h4>     
-         <h2> We are sorry for the inconvinience</h2>
-         <h2>Currently, there are no technicians available for the requested service </h2>
-         <h2>Please try after some time</h2>           
+         <div style={{marginTop:"60px",border:"2px solid red",borderRadius:"15px",width:"700px",height:"200px"}}>
+         <h3 style={{marginTop:"20px"}} ><i style={{color:"red",marginRight:"10px"}} class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+ We are sorry for the inconvinience</h3>
+         <h3>Currently, there are no technicians available for the requested service </h3>
+         <h3>Please try after some time</h3> 
+         </div>          
          <div style={{display:"flex",justifyContent:"space-evenly"}}>
        </div>
        </div>
