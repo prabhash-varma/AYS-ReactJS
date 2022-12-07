@@ -1,6 +1,8 @@
 import React from 'react'
+import {useNavigate} from 'react-router-dom'
 
 function Header() {
+    const navigate = useNavigate();
   return (
     <div>
   <nav className="main-header navbar navbar-expand navbar-white navbar-light">
@@ -18,7 +20,7 @@ function Header() {
     <ul className="navbar-nav ml-auto">
       <li className="nav-item">
         <a className="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i className="fas fa-search" />
+          {/* <i className="fas fa-search" /> */}
         </a>
         <div className="navbar-search-block">
           <form className="form-inline">
@@ -36,13 +38,13 @@ function Header() {
           </form>
         </div>
       </li>
-      <li className="nav-item dropdown">
+      <li onClick={()=>{navigate("/messages")}} className="nav-item dropdown">
         <a className="nav-link" data-toggle="dropdown" href="#">
           <i className="far fa-comments" />
           <span className="badge badge-danger navbar-badge">3</span>
         </a>
         <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" className="dropdown-item">
+          {/* <a className="dropdown-item">
             <div className="media">
               <img src="dist/img/user1-128x128.jpg" alt="User Avatar" className="img-size-50 mr-3 img-circle" />
               <div className="media-body">
@@ -54,7 +56,8 @@ function Header() {
                 <p className="text-sm text-muted"><i className="far fa-clock mr-1" /> 4 Hours Ago</p>
               </div>
             </div>
-          </a>
+          </a> */}
+
           <div className="dropdown-divider" />
           <a href="#" className="dropdown-item">
             <div className="media">
@@ -119,8 +122,11 @@ function Header() {
         </a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
-          <i className="fas fa-th-large" />
+        <a onClick={()=>{
+          navigate("/")
+        }} className="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
+       
+          <i class="fas fa-sign-out-alt"></i>
         </a>
       </li>
     </ul>

@@ -7,7 +7,7 @@ import MainNav from "../components/MainNav";
 import Axios from "axios";
 import {store}from "../App.js" 
 import HomeNav from "../components/HomeNav";
-import {toast} from 'react-toastify'
+import {toast} from 'react-toastify'  
 
 function Login() {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ function Login() {
   const [msg, setMsg] = useState("");
   const [pmsg, setPmsg] = useState("");
   const [imsg, setImsg] = useState("");
-  const [cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist]=useContext(store);
+  const {cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist}=useContext(store);
   const [passwordType, setPasswordType] = useState("password");
  
   const togglePassword = () => {

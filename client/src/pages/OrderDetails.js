@@ -5,12 +5,9 @@ import {useParams,useNavigate} from 'react-router-dom'
 import {store} from '../App.js'
 import './css/OrdersDetails.css'
 
-
 function OrderDetails() {
-
-  const navigate = useNavigate();
-  
-  const [cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist]  = useContext(store);
+ const navigate = useNavigate();  
+  const {cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist}  = useContext(store);
   let {orderid} = useParams();
   
   const render = (item) =>{
@@ -22,13 +19,14 @@ function OrderDetails() {
        <h4>Email: {item.ord_email}</h4>
        <h4>Phone: {item.ord_phone}</h4>                        
        <h2 style={{marginTop:"20px"}}>Address:</h2>
-       <h5>{item.ord_address1}</h5>                        
-       <h5>{item.ord_address2}</h5>                                               
-       <h5>{item.ord_state}</h5>
-       <h5>{item.ord_pincode}</h5>  
+       <h5>{item.ord_address1},</h5>                        
+       <h5>{item.ord_address2},</h5>                                               
+       <h5>{item.ord_state},</h5>
+       <h5>{item.ord_pincode},</h5>  
        <h4>Technician name : {item.efname} {item.elname}</h4>
        <h4>Technician phone number : {item.ephone}</h4>
        <h4>Technician email : {item.eemail}</h4>
+       {item.cost!=0? <h3>Cost:{item.cost}</h3> :<h3>Your Request is Still in progress</h3>}
        <div style={{display:"flex",justifyContent:"space-evenly"}}>
          <div style={{marginRight:"20px"}}>
           <button type="button" class="btn btn-success" onClick={()=>{ navigate('/ays/contactus')}} style={{marginTop:"20px"}}>Need Help?</button>
@@ -40,8 +38,7 @@ function OrderDetails() {
        </div>
        <div className="orders-details" style={{display: 'flex',flexDirection:"column",justifyContent: 'center',alignItems: 'center'}}>
        <img style={{width:"300px",height:"200px",marginBottom:"10px"}} src={item.iimg}/>
-       <h3>{item.cost}</h3>
-       {item.status==0? <h3>incomplete</h3>:<h3>Completed</h3>}
+       
        
 
     </div>

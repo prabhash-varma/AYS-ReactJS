@@ -15,8 +15,7 @@ import { toast } from "react-toastify";
 import Axios from "axios";
 
 function Salon() {
-  const globalState = useContext(store);
-  const [cartItems, setCartItems] = globalState;
+  const {cartItems, setCartItems}= useContext(store);
   const navigate = useNavigate();
 
   return (
@@ -123,11 +122,10 @@ function Salon() {
             name="Massages, Pedicure & Manicure"
             rating="4.5"
             size="800k"
-            price="₹ 5000"
           /><button
           className="btn btn-primary"
           onClick={() => {
-            if (cartItems.filter((e) => e.name === "Salon1").length > 0) {
+            if (cartItems.filter((e) => e.name === "Massages, Pedicure & Manicure").length > 0) {
               toast.warn("Item already exist in the cart", {
                 position: toast.POSITION.BOTTOM_RIGHT,
               });
@@ -139,8 +137,7 @@ function Salon() {
                   type:"salon",
                   img: Salonimg1,
                   rating: "4.5",
-                  size: "800k",
-                  price: "₹ 5000",
+                  size: "800k"
                 },
               ]);      
               toast.success("Added to Cart!", {
@@ -163,12 +160,11 @@ function Salon() {
             name="Hair cut"
             rating="4.5"
             size="800k"
-            price="₹ 6000"
           />
           <button
             className="btn btn-primary"
             onClick={() => {
-              if (cartItems.filter((e) => e.name === "Salon2").length > 0) {
+              if (cartItems.filter((e) => e.name === "Hair cut").length > 0) {
                 toast.warn("Item already exist in the cart", {
                   position: toast.POSITION.BOTTOM_RIGHT,
                 });
@@ -180,8 +176,7 @@ function Salon() {
                     img: Salonimg2,
                     type:"salon",
                     rating: "4.5",
-                    size: "800k",
-                    price: "₹ 6000",
+                    size: "800k"
                   },
                 ]);                   
                 toast.success("Added to Cart!", {
@@ -203,12 +198,11 @@ function Salon() {
             name="facials & cleanup"
             rating="4.5"
             size="800k"
-            price="₹ 7000"
           />
           <button
             className="btn btn-primary"
             onClick={() => {
-              if (cartItems.filter((e) => e.name === "Salon3").length > 0) {
+              if (cartItems.filter((e) => e.name === "facials & cleanup").length > 0) {
                 toast.warn("Item already exist in the cart", {
                   position: toast.POSITION.BOTTOM_RIGHT,
                 });
@@ -220,8 +214,7 @@ function Salon() {
                     type:"salon",
                     img: Salonimg3,
                     rating: "4.5",
-                    size: "800k",
-                    price: "₹ 7000",
+                    size: "800k"
                   },
                 ]);    
                 toast.success("Added to Cart!", {
@@ -242,7 +235,6 @@ function Salon() {
       <div style={{ display: "flex", marginTop: "200px", marginLeft: "50px" }}>
         <h1>General FAQs</h1>
       </div>
-
       <hr
         style={{
           marginTop: "0px",

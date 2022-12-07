@@ -32,7 +32,7 @@ function MainNav() {
                
               </li>
               <li className="nav-item">
-              <Link className="nav-link active" to="/login" >
+              <Link className="nav-link active" to="/mainlogon" >
                   <u>Login</u>
                 </Link>
               </li>

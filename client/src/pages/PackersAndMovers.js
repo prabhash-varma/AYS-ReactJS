@@ -14,8 +14,7 @@ import Collapsible from 'react-collapsible';
 import {toast} from 'react-toastify'
 
 function PackersAndMovers() {
-  const globalState = useContext(store);
-  const [cartItems, setCartItems] = globalState;
+  const {cartItems, setCartItems} =useContext(store);
   const navigate = useNavigate();
 
   return (
@@ -103,32 +102,29 @@ function PackersAndMovers() {
         <div className="packers-card">
           <Packers
             img={Packersimg1}
-            name="House Moving"
+            name="Store Moving"
             rating="4.5"
             size="800k"
-            price="₹ 5000"
           />
           <button
             className="btn btn-primary"
             onClick={() => {
 
-              if(cartItems.filter(e => e.name === 'House Moving').length > 0){
+              if(cartItems.filter(e => e.name === 'Store Moving').length > 0){
                 toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
               }
               else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "House Moving",
+                  name: "Store Moving",
+                  type:"packers and movers",
                   img: Packersimg1,
                   rating: "4.5",
-                  size: "800k",
-                  price: "₹ 5000",
+                  size: "800k"
                 },
               ]);
-              console.log(cartItems);
-              //alert("Added to Cart!")
-              //navigate("/ays/cart");
+            
               toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
             }
             }}
@@ -144,16 +140,14 @@ function PackersAndMovers() {
 
         <div className="packers-card">
           <Packers
-            img={Packersimg1}
+            img={Packersimg2}
             name="Office Moving"
-            rating="4.5"
+            rating="4.3"
             size="800k"
-            price="₹ 6000"
           />
           <button
             className="btn btn-primary"
             onClick={() => {
-
               if(cartItems.filter(e => e.name === 'Office Moving').length > 0){
                 toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
               }
@@ -162,15 +156,12 @@ function PackersAndMovers() {
                 ...cartItems,
                 {
                   name: "Office Moving",
-                  img: Packersimg1,
-                  rating: "4.5",
-                  size: "800k",
-                  price: "₹ 6000",
+                  type:"packers and movers",
+                  img: Packersimg2,
+                  rating: "4.3",
+                  size: "800k"
                 },
               ]);
-              console.log(cartItems);
-              //alert("Added to Cart!")
-             // navigate("/ays/cart");
              toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
             }
             }}
@@ -182,16 +173,12 @@ function PackersAndMovers() {
             Add to Cart
           </button>
         </div>
-
-
-
         <div className="packers-card">
           <Packers
-            img={Packersimg2}
+            img={Packersimg3}
             name="Shop Moving"
-            rating="4.5"
+            rating="5"
             size="800k"
-            price="₹ 7000"
           />
           <button
             className="btn btn-primary"
@@ -205,15 +192,12 @@ function PackersAndMovers() {
                 ...cartItems,
                 {
                   name: "Shop Moving",
-                  img: Packersimg2,
-                  rating: "4.5",
-                  size: "800k",
-                  price: "₹ 7000",
+                  type:"packers and movers",
+                  img: Packersimg3,
+                  rating: "5",
+                  size: "800k"
                 },
               ]);
-              console.log(cartItems);
-              //alert("Added to Cart!")
-              //navigate("/ays/cart");
               toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
             }
             }}
@@ -226,13 +210,9 @@ function PackersAndMovers() {
           </button>
         </div>
       </div>
-
-
-
       <div style={{ display: "flex", marginTop: "200px" ,marginLeft: "50px" }}>
         <h1>General FAQs</h1>
       </div>
-
       <hr
         style={{
           marginTop: "0px",
@@ -241,54 +221,33 @@ function PackersAndMovers() {
           height: "3px",
         }}
       ></hr>
-
       <div style={{ display: "flex" }}>
-
-
-
-
         <div>
-
-
         </div>
       </div>
-
-
-
-
-
       <div className="packers-faqs">
-
         <div className="packers-collapsible">
           <Collapsible
-
             trigger = <h3 style={{ display: "flex", justifyContent: "space-between" }}>
               <span>
               Why does the final charges vary from the estimates?
               </span>
               <span>+</span>
             </h3>
-          >
-
+            >
             <p>
               Our charges are fixed. What you see is what you pay. Prices are subjected to revision if there is change in the location or final item list. Rates can also change basis the complexity of shifting.
             </p>
           </Collapsible>
         </div>
-
-
         <div className="packers-collapsible">
-          <Collapsible 
-          
-          
+          <Collapsible           
           trigger = <h3 style={{ display: "flex", justifyContent: "space-between" }}>
               <span>
               Do packers and movers dismantle and assemble furnitures?
               </span>
               <span>+</span>
-            </h3>
-          
-          
+            </h3>       
           >
             <p>
               Yes, we do complete dismantling & assembly of furnitures wherever possible. Most furnitures do not need dismantelling but large beds and dinning tables may be dismantelled to move safely.

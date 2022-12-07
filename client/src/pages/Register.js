@@ -7,10 +7,6 @@ import Axios from "axios";
 
 
 function Register() {
-
-
-
-
   const navigate = useNavigate();
   const [user, setUser] = useState({
     firstName: "",
@@ -101,7 +97,7 @@ function Register() {
             city,  
             state,
             pincode,
-            free:"0"
+            free:"1"
           }).then((res) => {
             console.log(res);
               alert("We received your details. We will contact you soon!");
@@ -110,14 +106,8 @@ function Register() {
           });
         } 
   }
-  
-
-
-
   return (
     <div>
-
-
 <MainNav />
       <div className="login">
         <div>
@@ -127,12 +117,12 @@ function Register() {
             alt="logo"
           />
         </div>
-
+        
         <div className="formdiv">
           <h1 style={{ "margin-bottom": "50px", "margin-top": "30px" }}>
             Register as Professional
           </h1>
-          <Link to="/login_employee"> login as employee</Link>
+          
           <form onSubmit={submitHandler}>
             <div className="container">
               <div style={{ display: "flex", justifyContent: "center" }}>
@@ -141,7 +131,6 @@ function Register() {
                     First Name<p style={{color:"red"}}>*</p>
                   </label>
                   <input
-
                     type="text"
                     value={user.firstName}
                     name="firstName"
@@ -149,7 +138,6 @@ function Register() {
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="john"
-                    // value={user.firstName}
                     onChange={(e) => {
                       setFirstNameMsg("");
                       handleInputs(e);
@@ -169,7 +157,6 @@ function Register() {
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="doe"
-                    // value={user.lastName}
                     onChange={(e) => {
                       setLastNameMsg("");
                       handleInputs(e);
@@ -178,12 +165,9 @@ function Register() {
                   <p style={{ color: "red" }}>{lastNameMsg}</p>
                 </div>
               </div>
-
-
-
-
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <div style={{ "margin-right": "10px" }} class="mb-3">
+                 
                   <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}}  for="exampleInputEmail1" class="form-label">
                     Gender<p style={{color:"red"}}>*</p>
                   </label>
@@ -195,35 +179,31 @@ function Register() {
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                   <option value="Others">Others</option>
-                  </select>
-                  
-                  
+                  </select>                 
                 </div>
-                <div style={{ "margin-left": "10px" }} class="mb-3">
+                
+                <div style={{ "margin-left": "10px" }} class="mb-3">                
                   <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}}  for="exampleInputEmail1" class="form-label">
                     Profession<p style={{color:"red"}}>*</p>
                   </label>
-                  <input
-                  style={{height:"38px"}}
-                    type="text"
-                    value={user.profession}
-                    name="profession"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    placeholder="Eg.plumber"
-                    // value={user.phone}
-                    onChange={(e) => {
-                      setProfessionMsg("");
-                      handleInputs(e);
-                    }}
-                  />
+ 
+                  <select style={{width:"225px"}} name="profession" value={user.profession} onChange={(e)=>{
+                    setGenderMsg("");
+                    handleInputs(e);
+                  }} class="form-select">
+                  <option>---choose---</option>
+                  <option value="appliances">Appliances</option>
+                  <option value="home cleaning">Home Cleaning</option>
+                  <option value="packers and movers">Packers & movers</option>
+                  <option value="salon">Salon</option>
+                  <option value="pest control">Pest Control</option>
+                  <option value="painting">Painting</option>
+                  </select>  
+
+
                   <p style={{ color: "red" }}>{professionMsg}</p>
                 </div>
               </div>
-
-
-
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <div style={{ "margin-right": "10px" }} class="mb-3">
                   <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}}  for="exampleInputEmail1" class="form-label">
@@ -237,7 +217,6 @@ function Register() {
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="john@gmail.com"
-                    // value={user.email}
                     onChange={(e) => {
                       setEmailMsg("");
                       handleInputs(e);
@@ -256,8 +235,7 @@ function Register() {
                     class="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
-                    placeholder="99******99"
-                    // value={user.phone}
+                    placeholder="99******99"              
                     onChange={(e) => {
                       setPhoneMsg("");
                       handleInputs(e);
@@ -266,10 +244,6 @@ function Register() {
                   <p style={{ color: "red" }}>{phoneMsg}</p>
                 </div>
               </div>
-
-
-
-
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <div style={{ "margin-right": "10px" }} class="mb-3">
                   <label  style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}} for="exampleInputEmail1" class="form-label">
@@ -283,7 +257,6 @@ function Register() {
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Church Street"
-                    // value={user.email}
                     onChange={(e) => {
                       setAddressMsg("");
                       handleInputs(e);
@@ -303,7 +276,6 @@ function Register() {
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Chennai"
-                    // value={user.phone}
                     onChange={(e) => {
                       setCityMsg("");
                       handleInputs(e);
@@ -375,7 +347,6 @@ function Register() {
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="500001"
-                    // value={user.pincode}
                     onChange={(e) => {
                       setPincodeMsg("");
                       handleInputs(e);
@@ -384,9 +355,6 @@ function Register() {
                   <p style={{ color: "red" }}>{pincodeMsg}</p>
                 </div>
               </div>
-
-             
-
               <button type="submit" class="btn btn-primary">
                 Submit
               </button>
@@ -400,9 +368,7 @@ function Register() {
               flexDirection: "row",
               justifyContent: "center",
             }}
-          >
-            
-           
+          >                       
           </div>
         </div>
       </div>
@@ -410,5 +376,4 @@ function Register() {
     </div>
   )
 }
-
 export default Register

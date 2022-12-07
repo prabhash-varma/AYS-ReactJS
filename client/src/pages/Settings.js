@@ -8,14 +8,14 @@ import {toast} from "react-toastify";
 
 
 function Settings() {
-  const [
+  const {
     cartItems,
     setCartItems,
     userdetails,
     setUserDetails,
     orderslist,
     setOrderslist,
-  ] = useContext(store);
+ } = useContext(store);
  console.log("hiii olooonsf",userdetails)
   const [imageurl, setImageurl] = useState(`${userdetails.imgurl}`);
   if (imageurl=="undefined")

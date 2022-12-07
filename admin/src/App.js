@@ -7,6 +7,7 @@ import Employees from './pages/Employees';
 import Orders from './pages/Orders';
 import React,{useContext,createContext,useState} from 'react'
 import Messages from './pages/Messages'
+import Login from './pages/Login'
 
 export const store = createContext();
 
@@ -18,6 +19,7 @@ function App() {
   const [ordersList,setOrdersList]=useState([])
   const [msgList,setMsgList]=useState([])
 
+  
 
   return (
     <div className="App">
@@ -25,7 +27,8 @@ function App() {
       <BrowserRouter>
 
         <Routes>
-          <Route path="/" element={<MainDashboard/>}/>
+          <Route path="/" element={<Login/>}/>
+          <Route path="/dashboard" element={<MainDashboard/>}/>
           <Route path="/messages" element={<Messages/>}/>
           <Route path="/customers" element={<Customers/>}/>
           <Route path="/employees" element={<Employees/>}/>

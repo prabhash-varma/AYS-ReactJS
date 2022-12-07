@@ -3,14 +3,14 @@ import "../pages/css/Profile.css";
 import { store } from "../App";
 
 function ProfileComp(props) {
-  const [
+  const {
     cartItems,
     setCartItems,
     userdetails,
     setUserDetails,
     orderslist,
     setOrderslist,
-  ] = useContext(store);
+ } = useContext(store);
 
   
   const [imageurl, setImageurl] = useState(`${userdetails.imgurl}`);

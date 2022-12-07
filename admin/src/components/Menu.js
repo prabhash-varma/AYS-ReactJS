@@ -11,7 +11,7 @@ function Menu() {
     <aside className="main-sidebar sidebar-dark-primary elevation-4">
       {/* Brand Logo */}
       <a style={{cursor:"pointer"}} onClick={()=>{
-        navigate('/')
+        navigate('/dashboard')
       }} className="brand-link">
         <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" className="brand-image img-circle elevation-3" style={{opacity: '.8'}} />
         <span className="brand-text font-weight-light" style={{fontFamily:"sans-serif"}}>At Your Service</span>
@@ -24,7 +24,7 @@ function Menu() {
             <img src="dist/img/user2-160x160.jpg" className="img-circle elevation-2" alt="User Image" />
           </div>
           <div style={{cursor: 'pointer'}} onClick={()=>{
-            navigate('/')
+            navigate('/dashboard')
           }} className="info">
             <a className="d-block">Admin</a>
           </div>
@@ -36,7 +36,7 @@ function Menu() {
              with font-awesome or any other icon font library */}
             <li className="nav-item has-treeview menu-open">
               <a style={{cursor: 'pointer'}} onClick={()=>{
-                navigate('/')
+                navigate('/dashboard')
               }} className="nav-link active">
                 <i className="nav-icon fas fa-tachometer-alt" />
                 <p>
@@ -69,7 +69,9 @@ function Menu() {
               navigate('/customers')
             }}>
               <a className="nav-link">
-                <i className="nav-icon fas fa-th" />
+                {/* <i className="nav-icon fas fa-th" /> */}
+                <i style={{marginRight:"8px"}} class="fa fa-users" aria-hidden="true"></i>
+              
                 <p>
                   Customers
                   <span className="right badge badge-danger">New</span>
@@ -80,7 +82,8 @@ function Menu() {
               navigate('/employees')
             }}>
               <a className="nav-link">
-                <i className="nav-icon fas fa-th" />
+              <i style={{marginRight:"8px"}} class="fa fa-users" aria-hidden="true"></i>
+               
                 <p>
                   Employees
                   <span className="right badge badge-danger">New</span>
@@ -91,7 +94,9 @@ function Menu() {
               navigate('/orders')
             }}>
               <a className="nav-link">
-                <i className="nav-icon fas fa-th" />
+                {/* <i className="nav-icon fas fa-th" /> */}
+                <i style={{marginRight:"8px"}} class="fa fa-shopping-cart" aria-hidden="true"></i>
+
                 <p>
                   Orders
                   <span className="right badge badge-danger">New</span>
@@ -102,14 +107,14 @@ function Menu() {
               navigate('/messages')
             }}>
               <a className="nav-link">
-                <i className="nav-icon fas fa-th" />
+              <i className="nav-icon far fa-envelope" />
                 <p>
                   Messages
                   <span className="right badge badge-danger">New</span>
                 </p>
               </a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a href="#" className="nav-link">
                 <i  className="nav-icon fas fa-th" />
                 <p>
@@ -117,8 +122,10 @@ function Menu() {
                   <span className="right badge badge-danger">New</span>
                 </p>
               </a>
-            </li>
-            <li className="nav-item has-treeview">
+            </li> */}
+
+
+            {/* <li className="nav-item has-treeview">
               <a href="#" className="nav-link">
                 <i className="nav-icon fas fa-copy" />
                 <p>
@@ -165,8 +172,12 @@ function Menu() {
                   </a>
                 </li>
               </ul>
-            </li>
-            <li className="nav-item has-treeview">
+            </li> */}
+
+
+
+
+            {/* <li className="nav-item has-treeview">
               <a href="#" className="nav-link">
                 <i className="nav-icon fas fa-chart-pie" />
                 <p>
@@ -253,8 +264,11 @@ function Menu() {
                   </a>
                 </li>
               </ul>
-            </li>
-            <li className="nav-item has-treeview">
+            </li> */}
+
+
+
+            {/* <li className="nav-item has-treeview">
               <a href="#" className="nav-link">
                 <i className="nav-icon fas fa-edit" />
                 <p>
@@ -591,7 +605,7 @@ function Menu() {
                 <i className="nav-icon far fa-circle text-info" />
                 <p>Informational</p>
               </a>
-            </li>
+            </li> */}
           </ul>
         </nav>
         {/* /.sidebar-menu */}

@@ -7,7 +7,7 @@ import Axios from 'axios'
 
 
 function Profile() {
-  const [cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist]=useContext(store);
+  const {cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist}=useContext(store);
   const [profileData,setProfileData] = useState({})
 
   // useEffect(()=>{

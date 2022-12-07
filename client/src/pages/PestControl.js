@@ -18,14 +18,12 @@ import {toast} from 'react-toastify'
 function PestControl() {
 
 
-  const globalState = useContext(store);
-  const [cartItems, setCartItems] = globalState;
+  const {cartItems, setCartItems} = useContext(store);
   const navigate = useNavigate();
 
   return (
     <div>
-         <HomeNav/>
-        
+         <HomeNav/>  
          <div
         style={{
           marginTop: "130px",
@@ -61,17 +59,11 @@ function PestControl() {
             <p style={{ textAlign: "left", marginTop: "1px", width: "400px", fontSize: "18px", marginTop: "40px" }} aria-hidden="true">Get Pest Treatment near you for a long lasting protection against cockroaches. Our unique 2-step process ensures a 3-month warranty against recurring cockroaches. We will help you take away the struggle of spraying regularly to fight hidden cockroaches in your kitchen and bathroom as this unique service ensures that even the hidden larvae are killed. Ensure a hygienic home, kitchen and bathroom with our Pest Treatment and don’t worry about recurring cockroaches anymore. </p>
           </div>
         </div>
-
-
-
-
         <div style={{marginTop:"20px"}}>
           <iframe
             src="https://youtube.com/embed/rVps7bb5FSE"
             frameborder="0"
-            style={{
-              // width: "495px",
-              // height: "285px",
+            style={{           
               width: "675px",
               height: "382px",
               borderRadius: "10px",
@@ -102,38 +94,31 @@ function PestControl() {
           justifyContent: "space-evenly",
         }}
       >
-
-
-
         <div className="pestcontrol-card">
           <PestItem
             img={PestControlimg1}
-            name="Pest Control1"
+            name="Garden Pest Control"
             rating="4.5"
             size="800k"
-            price="₹ 5000"
           />
           <button
             className="btn btn-primary"
             onClick={() => {
 
-              if(cartItems.filter(e => e.name === 'Pest Control1').length > 0){
+              if(cartItems.filter(e => e.name === 'Garden Pest Control').length > 0){
                 toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
               }
               else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Pest Control1",
+                  name: "Garden Pest Control",
+                  type:"pest control",
                   img: PestControlimg1,
                   rating: "4.5",
-                  size: "800k",
-                  price: "₹ 5000",
+                  size: "800k"
                 },
               ]);
-              console.log(cartItems);
-              //alert("Added to Cart!")
-              //navigate("/ays/cart");
               toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
             }
             }}
@@ -145,37 +130,31 @@ function PestControl() {
             Add to Cart
           </button>
         </div>
-
-
         <div className="pestcontrol-card">
           <PestItem
             img={PestControlimg2}
-            name="Pest Control2"
+            name="Full Home pestcontrol"
             rating="4.5"
             size="800k"
-            price="₹ 6000"
           />
           <button
             className="btn btn-primary"
             onClick={() => {
 
-              if(cartItems.filter(e => e.name === 'Pest Control2').length > 0){
+              if(cartItems.filter(e => e.name === 'Full Home pestcontrol').length > 0){
                 toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
               }
               else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Pest Control2",
+                  name: "Full Home pestcontrol",
+                  type:"pest control",
                   img: PestControlimg2,
                   rating: "4.5",
-                  size: "800k",
-                  price: "₹ 6000",
+                  size: "800k"
                 },
               ]);
-              console.log(cartItems);
-              //alert("Added to Cart!")
-             // navigate("/ays/cart");
              toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
             }
             }}
@@ -187,37 +166,30 @@ function PestControl() {
             Add to Cart
           </button>
         </div>
-
-
-
         <div className="pestcontrol-card">
           <PestItem
             img={PestControlimg3}
-            name="Pest Control3"
-            rating="4.5"
+            name="Kitchen Pest Control"
+            rating="5"
             size="800k"
-            price="₹ 7000"
           />
           <button
             className="btn btn-primary"
             onClick={() => {
-              if(cartItems.filter(e => e.name === 'Pest Control3').length > 0){
+              if(cartItems.filter(e => e.name === 'Kitchen Pest Control').length > 0){
                 toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
               }
               else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Pest Control3",
+                  name: "Kitchen Pest Control",
+                  type:"pest control",
                   img: PestControlimg3,
-                  rating: "4.5",
-                  size: "800k",
-                  price: "₹ 7000",
+                  rating: "5",
+                  size: "800k"
                 },
               ]);
-              console.log(cartItems);
-              //alert("Added to Cart!")
-              //navigate("/ays/cart");
               toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
             }
             }}
@@ -230,13 +202,9 @@ function PestControl() {
           </button>
         </div>
       </div>
-
-
-
       <div style={{ display: "flex", marginTop: "200px" ,marginLeft: "50px" }}>
         <h1>General FAQs</h1>
       </div>
-
       <hr
         style={{
           marginTop: "0px",
@@ -247,25 +215,12 @@ function PestControl() {
       ></hr>
 
       <div style={{ display: "flex" }}>
-
-
-
-
         <div>
-
-
         </div>
       </div>
-
-
-
-
-
       <div className="pestcontrol-faqs">
-
         <div className="pestcontrol-collapsible">
           <Collapsible
-
             trigger = <h3 style={{ display: "flex", justifyContent: "space-between" }}>
               <span>
               What will the first visit include?

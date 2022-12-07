@@ -6,12 +6,21 @@ import { Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
 
 function Orders() {
-  const [cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist,] = useContext(store);
+  const {
+    cartItems,
+    setCartItems,
+    userdetails,
+    setUserDetails,
+    orderslist,
+    setOrderslist,
+}= useContext(store);
   const [orderitems, setorderitems] = useState([]);
   const navigate = useNavigate();
 
-  const getorderdetails = async() => {
-    const res =await Axios.get(`http://localhost:3001/orders?uemail:${userdetails.email}`);
+  const getorderdetails = async () => {
+    const res = await Axios.get(
+      `http://localhost:3001/orders?uemail:${userdetails.email}`
+    );
     setorderitems(res.data);
     setOrderslist([]);
     orderitems.map((item) => {
@@ -39,6 +48,7 @@ function Orders() {
         </h1>
       </div>
       <hr style={{ width: "900px", height: "2px" }}></hr>
+
       <div
         style={{
           display: "flex",
@@ -61,6 +71,19 @@ function Orders() {
                     <h1>{item.iname}</h1>
                     <p>Ordered on {item.ord_date}</p>
                   </div>
+                  <div>
+                    <p>
+                      {item.status === 1 ? (
+                        <button class="btn btn-success">Completed</button>
+                      ) : (
+                          item.eemail == "" ?(
+<button class="btn btn-danger">Canceled</button>
+ ):(<>                         
+  <button class="btn" style={{backgroundColor:"orange",color:"white"}}>Pending...</button>
+                          </>)
+                      
+                      )}
+                    </p>
                   <p style={{ marginTop: "100px" }}>
                     <Link to={`/ays/orders/${key}`}>
                       {" "}
@@ -77,6 +100,8 @@ function Orders() {
                       </h6>
                     </Link>
                   </p>
+
+                </div>
                 </div>
               );
             })}

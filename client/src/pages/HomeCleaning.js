@@ -6,15 +6,13 @@ import HomeCleaningimg3 from './Images/HomeCleaningimg3.jpg'
 import Footer from '../components/Footer.js'
 import {useNavigate} from 'react-router-dom'
 import {store} from '../App.js'
-import Packers from '../components/PackersItem.js'
 import Collapsible from 'react-collapsible';
 import './css/HomeCleaning.css'
 import HomeItem from '../components/HomeItem.js'
 import {toast} from 'react-toastify'
 
 function HomeCleaning() {
-    const globalState = useContext(store);
-    const [cartItems, setCartItems] = globalState;
+  const {cartItems, setCartItems}= useContext(store);
     const navigate = useNavigate();
   
     return (
@@ -63,8 +61,6 @@ function HomeCleaning() {
               src="https://youtube.com/embed/fyI410zm2_A"
               frameborder="0"
               style={{
-                // width: "495px",
-                // height: "285px",
                 width: "675px",
                 height: "382px",
                 borderRadius: "10px",
@@ -101,16 +97,15 @@ function HomeCleaning() {
           <div className="homecleaning-card">
             <HomeItem
               img={HomeCleaningimg1}
-              name="Home Cleaning1"
+              name="Bathroom & Kitchen Cleaning"
               rating="4.5"
               size="800k"
-              price="₹ 5000"
-            />
+                />
             <button
               className="btn btn-primary"
               onClick={() => {
 
-                if(cartItems.filter(e => e.name === 'Home Cleaning1').length > 0){
+                if(cartItems.filter(e => e.name === 'Bathroom & Kitchen Cleaning').length > 0){
                   toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
                 }
                 else{
@@ -118,19 +113,16 @@ function HomeCleaning() {
                 setCartItems([
                   ...cartItems,
                   {
-                    name: "Home Cleaning1",
+                    name: "Bathroom & Kitchen Cleaning",
+                    type:"home cleaning",
                     img: HomeCleaningimg1,
                     rating: "4.5",
-                    size: "800k",
-                    price: "₹ 5000",
+                    size: "800k"
                   },
                 ]);
                 toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
               }
-                console.log(cartItems);
-                //alert("Added to Cart!")
-                //navigate("/ays/cart");
-               
+    
               }}
             >
               <i
@@ -140,39 +132,29 @@ function HomeCleaning() {
               Add to Cart
             </button>
           </div>
-  
-  
           <div className="homecleaning-card">
             <HomeItem
               img={HomeCleaningimg2}
-              name="Home Cleaning2"
-              rating="4.5"
-              size="800k"
-              price="₹ 6000"
-            />
+              name="Furniture & Carpet Cleaning"
+              rating="5"
+              size="800k"/>
             <button
               className="btn btn-primary"
               onClick={() => {
-
-
-
-                if(cartItems.filter(e => e.name === 'Home Cleaning2').length > 0){
+                if(cartItems.filter(e => e.name === 'Furniture & Carpet Cleaning').length > 0){
                   toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
                 }
                 else{
                 setCartItems([
                   ...cartItems,
                   {
-                    name: "Home Cleaning2",
+                    name: "Furniture & Carpet Cleaning",
+                    type:"home cleaning",
                     img: HomeCleaningimg2,
-                    rating: "4.5",
-                    size: "800k",
-                    price: "₹ 6000",
+                    rating: "5",
+                    size: "800k"
                   },
                 ]);
-                console.log(cartItems);
-                //alert("Added to Cart!")
-               // navigate("/ays/cart");
                toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
               }
               }}
@@ -184,39 +166,30 @@ function HomeCleaning() {
               Add to Cart
             </button>
           </div>
-  
-  
-  
           <div className="homecleaning-card">
             <HomeItem
               img={HomeCleaningimg3}
-              name="Home Cleaning3"
+              name="Full Home Cleaning"
               rating="4.5"
               size="800k"
-              price="₹ 7000"
             />
             <button
               className="btn btn-primary"
               onClick={() => {
-
-
-                if(cartItems.filter(e => e.name === 'Home Cleaning3').length > 0){
+                if(cartItems.filter(e => e.name === 'Full Home Cleaning').length > 0){
                   toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
                 }
                 else{
                 setCartItems([
                   ...cartItems,
                   {
-                    name: "Home Cleaning3",
+                    name: "Full Home Cleaning",
+                    type:"home cleaning",
                     img: HomeCleaningimg3,
                     rating: "4.5",
-                    size: "800k",
-                    price: "₹ 7000",
+                    size: "800k"
                   },
                 ]);
-                console.log(cartItems);
-                //alert("Added to Cart!")
-                //navigate("/ays/cart");
                 toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
               }}
             }

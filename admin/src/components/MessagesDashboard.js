@@ -4,7 +4,7 @@ import MsgComp from './MsgComp'
 import {store} from '../App'
 
 function MessagesDashboard() {
-
+    
    const {msgList,setMsgList}=React.useContext(store)
 
     const [search,setSearch] = useState("");    

@@ -4,15 +4,12 @@ import { store } from "../App.js";
 import CartItem from "../components/CartItem.js";
 import "./css/Cart.css";
 import {useNavigate} from 'react-router-dom'
-import CartAnimation from "./Images/CartAnimation.gif"
 import {toast} from 'react-toastify'
 import Axios from "axios";
 
 
 
 function Cart() {
-
-  const [sum,setSum]=useState(0);
   const [nameMsg, setNameMsg] = useState("");
   const [emailMsg, setEmailMsg] = useState("");
   const [phoneMsg, setPhoneMsg] = useState("");
@@ -21,20 +18,16 @@ function Cart() {
   const [address1Msg, setAddress1Msg] = useState("");
 
   
-  const globalState = useContext(store);
-  const [cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist] = globalState;
-
+  const {cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist}= useContext(store);
 
   const [listItems,setListItems]=useState([])
-
-
-  const [orderItems,setOrderItems] =useState({add_name:"",add_email:"",add_phone:"",add_address1:"",add_address2:"",add_state:"",add_pincode:"",add_date:"",add_orderItems:[],add_total:0});
+  const [orderItems,setOrderItems] =useState({add_name:"",add_email:"",add_phone:"",add_address1:"",add_address2:"",add_state:"",add_pincode:"",add_date:"",add_orderItems:[]});
  
   const navigate = useNavigate();
   const handleInputs = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    
+  
     setOrderItems({ ...orderItems, [name]: value });
 
     var date=new Date();  
@@ -83,59 +76,45 @@ function Cart() {
       //alert("Please enter your pincode");
       setPincodeMsg("Enter valid pincode!");
     }
-    else{
-    
-      //setOrderItems({...orderItems,});
-      // orderItems.add_orderItems.map((cartItem)=>{
-      //   console.log("1")
-      //   setOrderslist((prevlist)=>{
-      //     return(
-      //     [...prevlist,{add_name:orderItems.add_name,add_email:orderItems.add_email,add_phone:orderItems.add_phone,add_address1:orderItems.add_address1,add_address2:orderItems.add_address2,add_state:orderItems.add_state,add_pincode:orderItems.add_pincode,add_date:orderItems.add_date,add_orderItems:cartItem,add_total:orderItems.add_total,...cartItem}]
-      //     )
-      //   });
-      // })
-  
+    else{  
   const find =async() => {
       for(var i =0;i< cartItems.length;i++)
       {
-        // const empdetails = ""
          const item = cartItems[i]
-         const res = await Axios.get(`http://localhost:3001/employees?profession=${item.type}&free=0`)
+         const res = await Axios.get(`http://localhost:3001/employees?profession=${item.type}&free=1`)
          const emp = res.data[0]  
         if(res.data.length >0)
         {
-          await Axios.patch(`http://localhost:3001/employees/${emp.id}`,{"free":1})    
-          // await Axios.post(`http://localhost:3001/orders`, {item,userdetails,emp})
+          await Axios.patch(`http://localhost:3001/employees/${emp.id}`,{"free":0})        
           await Axios.post(`http://localhost:3001/orders`, {status:0,iname:item.name,iimg:item.img,itype:item.type,ufname:userdetails.firstName,ulname:userdetails.lastName,uemail:userdetails.email,uphone:userdetails.phone,eid:emp.id,efname:emp.firstName,elname:emp.lastName,eemail:emp.email,ephone:emp.phone,eprofession:emp.eprofession,ord_name:orderItems.add_name,ord_email:orderItems.add_email,ord_phone:orderItems.add_phone,ord_address1:orderItems.add_address1,ord_address2:orderItems.add_address2,ord_state:orderItems.add_state,ord_pincode:orderItems.add_pincode,ord_date:orderItems.add_date})
         }
         else{
         await Axios.post(`http://localhost:3001/orders`, {status:0,iname:item.name,iimg:item.img,itype:item.type,ufname:userdetails.firstName,ulname:userdetails.lastName,uemail:userdetails.email,uphone:userdetails.phone,eemail:"",ord_name:orderItems.add_name,ord_email:orderItems.add_email,ord_phone:orderItems.add_phone,ord_address1:orderItems.add_address1,ord_address2:orderItems.add_address2,ord_state:orderItems.add_state,ord_pincode:orderItems.add_pincode,ord_date:orderItems.add_date})
-        // await Axios.post(`http://localhost:3001/orders`, {item,userdetails,emp:"No employee available"})
       }
       }
     }
     find()
     setCartItems([]);
       alert("Ordered Successfully");
-      navigate("/ays/home")
+      navigate("/ays/orders")
     }
   }
-  useEffect(()=>{
-      cartItems.forEach((item)=>{
-       let i= item.price.replace("₹ ","");
-      console.log(i);
-      setSum(prevsum=>{
-        return prevsum+parseInt(i);
-      })
+  // useEffect(()=>{
+  //     cartItems.forEach((item)=>{
+  //      let i= item.price.replace("₹ ","");
+  //     console.log(i);
+  //     setSum(prevsum=>{
+  //       return prevsum+parseInt(i);
+  //     })
         
-      }
-      )
-      setOrderItems(previtem=>{
-        return {...previtem,add_total:sum}
-        }
+  //     }
+  //     )
+  //     setOrderItems(previtem=>{
+  //       return {...previtem,add_total:sum}
+  //       }
 
-      )
-  },[cartItems])
+  //     )
+  // },[cartItems])
 
 
 
@@ -154,9 +133,6 @@ function Cart() {
           Cart Items
         </h1>
         </div>
-        {/* <div>
-          <img src={CartAnimation} style={{marginTop:"40px",height:"100px",width:"100px"}}/>
-        </div> */}
       </div>
       <hr style={{ width: "900px", height: "3px",color:"rgb(0, 0, 0)" }}></hr>
 
@@ -178,15 +154,12 @@ function Cart() {
                 name={item.name}
                 rating={item.rating}
                 size={item.size}
-                price={item.price}
               />
 
               <button
                 className="btn btn-danger"
                 onClick={() => {
                   setCartItems(cartItems.filter((i,id) => id !== key));
-                  setSum(0)
-                  // alert("Removed from Cart!")
                   toast.error("Item Removed from Cart!",{position: toast.POSITION.BOTTOM_RIGHT})
                 }}
               >
@@ -388,7 +361,7 @@ function Cart() {
                 
               </div>
 
-              <hr style={{ width: "400px", height: "2px" }}></hr>
+              {/* <hr style={{ width: "400px", height: "2px" }}></hr>
 
               <div>
               <label for="exampleInputEmail1" class="form-label">
@@ -398,7 +371,7 @@ function Cart() {
               </div>
 
                 
-              <hr style={{ width: "400px", height: "2px" }}></hr>
+              <hr style={{ width: "400px", height: "2px" }}></hr> */}
               <div style={{ "margin-left": "10px" }} class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">
                     <h3>Payment Mode</h3>

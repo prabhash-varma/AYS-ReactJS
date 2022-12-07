@@ -1,6 +1,5 @@
 import React,{useContext} from 'react'
 import HomeNav from '../components/HomeNav.js'
-
 import PaintingItem from "../components/PaintingItem.js";
 import Footer from "../components/Footer.js";
 import "./css/Painting.css";
@@ -18,13 +17,8 @@ import {toast} from 'react-toastify'
 function Painting() {
 
 
-  const globalState = useContext(store);
-  const [cartItems, setCartItems] = globalState;
+  const {cartItems, setCartItems}= useContext(store);
   const navigate = useNavigate();
-
-
-
-
   return (
     <div>
        <HomeNav/>
@@ -40,12 +34,9 @@ function Painting() {
         <div style={{ marginRight: "70px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-start" }}>
           <div>
             <h1 style={{ "margin-top": "15px", fontFamily: "sans-serif" }}>
-              <b>Painting</b>
-              
+              <b>Painting</b>            
             </h1>
-
           </div>
-
           <div
             style={{
               display: "flex",
@@ -64,17 +55,11 @@ function Painting() {
             <p style={{ textAlign: "left", marginTop: "1px", width: "400px", fontSize: "18px", marginTop: "40px" }} aria-hidden="true">Get your house ready for its periodic paint job. Well, we provide you with the best painting contractors, who offer house painting services at affordable prices. Not only that, they work with 100% genuine paints and vacuum sanding machines, and ensure laser-accurate measurements, dedicated supervision by a project manager, furniture protection and on-time project completion. So, book one of our top house painters right away! </p>
           </div>
         </div>
-
-
-
-
         <div style={{marginTop:"20px"}}>
           <iframe
             src="https://youtube.com/embed/P9WXytzXz3k"
             frameborder="0"
-            style={{
-              // width: "495px",
-              // height: "285px",
+            style={{       
               width: "675px",
               height: "382px",
               borderRadius: "10px",
@@ -105,38 +90,31 @@ function Painting() {
           justifyContent: "space-evenly",
         }}
       >
-
-
-
         <div className="painting-card">
           <PaintingItem
             img={Paintingimg1}
-            name="Painting1"
+            name="Wood Finishing"
             rating="4.5"
             size="800k"
-            price="₹ 5000"
           />
           <button
             className="btn btn-primary"
             onClick={() => {
 
-              if(cartItems.filter(e => e.name === 'Painting1').length > 0){
+              if(cartItems.filter(e => e.name === 'Wood Finishing').length > 0){
                 toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
               }
               else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Painting1",
+                  name: "Wood Finishing",
+                  type:"painting",
                   img: Paintingimg1,
                   rating: "4.5",
-                  size: "800k",
-                  price: "₹ 5000",
+                  size: "800k"
                 },
-              ]);
-              console.log(cartItems);
-              //alert("Added to Cart!")
-              //navigate("/ays/cart");
+              ]);              
               toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
             }
             }}
@@ -153,33 +131,27 @@ function Painting() {
         <div className="painting-card">
           <PaintingItem
             img={Paintingimg2}
-            name="Painting2"
+            name="Water Proofing"
             rating="4.5"
             size="800k"
-            price="₹ 6000"
           />
           <button
             className="btn btn-primary"
             onClick={() => {
-
-
-              if(cartItems.filter(e => e.name === 'Painting2').length > 0){
+              if(cartItems.filter(e => e.name === 'Water Proofing').length > 0){
                 toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
               }
               else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Painting2",
+                  name: "Water Proofing",
+                  type:"painting",
                   img: Paintingimg2,
                   rating: "4.5",
-                  size: "800k",
-                  price: "₹ 6000",
+                  size: "800k"
                 },
-              ]);
-              console.log(cartItems);
-              //alert("Added to Cart!")
-             // navigate("/ays/cart");
+              ]);        
              toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
             }
             }}
@@ -191,39 +163,30 @@ function Painting() {
             Add to Cart
           </button>
         </div>
-
-
-
         <div className="painting-card">
           <PaintingItem
             img={Paintingimg3}
-            name="Painting3"
+            name="Wall Textures"
             rating="4.5"
             size="800k"
-            price="₹ 7000"
           />
           <button
             className="btn btn-primary"
             onClick={() => {
-
-
-              if(cartItems.filter(e => e.name === 'Painting3').length > 0){
+              if(cartItems.filter(e => e.name === 'Wall Textures').length > 0){
                 toast.warn("Item already exist in the cart",{position: toast.POSITION.BOTTOM_RIGHT})
               }
               else{
               setCartItems([
                 ...cartItems,
                 {
-                  name: "Painting3",
+                  name: "Wall Textures",
+                  type:"painting",
                   img: Paintingimg3,
                   rating: "4.5",
-                  size: "800k",
-                  price: "₹ 7000",
+                  size: "800k"
                 },
               ]);
-              console.log(cartItems);
-              //alert("Added to Cart!")
-              //navigate("/ays/cart");
               toast.success('Added to Cart!', {position: toast.POSITION.BOTTOM_RIGHT})
             }
             }}
@@ -236,9 +199,6 @@ function Painting() {
           </button>
         </div>
       </div>
-
-
-
       <div style={{ display: "flex", marginTop: "200px" ,marginLeft: "50px" }}>
         <h1>General FAQs</h1>
       </div>
@@ -253,25 +213,13 @@ function Painting() {
       ></hr>
 
       <div style={{ display: "flex" }}>
-
-
-
-
         <div>
-
-
         </div>
       </div>
-
-
-
-
-
       <div className="painting-faqs">
 
         <div className="painting-collapsible">
           <Collapsible
-
             trigger = <h3 style={{ display: "flex", justifyContent: "space-between" }}>
               <span>
               What are the benefits of the painting service?

@@ -6,7 +6,7 @@ import './css/HomeNav.css'
 
 
 const HomeNav = () => {
-  const [cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist]  = useContext(store);
+  const {cartItems,setCartItems,userdetails,setUserDetails,orderslist,setOrderslist}  = useContext(store);
   return (
     <div>
         <nav className="navbar navbar-expand-lg bg-light fixed-top">

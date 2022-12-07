@@ -14,7 +14,7 @@ function Employee_login() {
   const [msg, setMsg] = useState("");
   const [pmsg, setPmsg] = useState("");
   const [imsg, setImsg] = useState("");
-  const [empdetails,setempDetails]=useContext(store);
+  const {empdetails,setempDetails}=useContext(store);
   const [passwordType, setPasswordType] = useState("password");
  
   const togglePassword = () => {
@@ -108,8 +108,7 @@ function Employee_login() {
                */}
           {/* </div> */}
 
-         
-    
+  
           <div className="input__box">
             <button type="submit" className="button_l">
               Log in

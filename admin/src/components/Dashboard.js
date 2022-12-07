@@ -1,6 +1,44 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import {store} from '../App'
+import {useEffect} from 'react'
+import {useState} from 'react'
+import Axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 
 function Dashboard() {
+
+  const navigate = useNavigate();
+  const [EmpCount,setEmpCount] = useState(0);
+  const [CustCount,setCustCount] = useState(0);
+  const [OrderCount,setOrderCount] = useState(0);
+
+  const [templist,setTemplist] = useState([]);
+
+  useEffect(()=>{
+    Axios.get('http://localhost:3001/employees').then((response)=>{
+      setTemplist(response.data)
+      setEmpCount(response.data.length)
+    })
+  },[])
+
+  useEffect(()=>{
+    Axios.get('http://localhost:3001/users').then((response)=>{
+      setTemplist(response.data)
+      setCustCount(response.data.length)
+    })
+  },[])
+
+  useEffect(()=>{
+    Axios.get('http://localhost:3001/orders').then((response)=>{
+      setTemplist(response.data)
+      setOrderCount(response.data.length)
+    })
+  },[])
+
+
+
+
+
   return (
     <div>
   <div className="content-wrapper">
@@ -25,37 +63,39 @@ function Dashboard() {
           <div className="col-lg-3 col-6">
             <div className="small-box bg-info">
               <div className="inner">
-                <h3>150</h3>
+                <h3>{OrderCount}</h3>
                 <p>New Orders</p>
               </div>
               <div className="icon">
                 <i className="ion ion-bag" />
               </div>
-              <a href="#" className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></a>
+              <a onClick={()=>{
+                navigate('/orders')
+              }} className="small-box-footer" style={{cursor: 'pointer'}}>More info <i className="fas fa-arrow-circle-right" /></a>
             </div>
           </div>
           <div className="col-lg-3 col-6">
             <div className="small-box bg-success">
               <div className="inner">
-                <h3>53<sup style={{fontSize: 20}}>%</sup></h3>
-                <p>Bounce Rate</p>
+                <h3>{CustCount}<sup style={{fontSize: 20}}></sup></h3>
+                <p>Customers</p>
               </div>
               <div className="icon">
                 <i className="ion ion-stats-bars" />
               </div>
-              <a href="#" className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></a>
+              <a onClick={()=>{navigate("/customers")}} style={{cursor: 'pointer'}} className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></a>
             </div>
           </div>
           <div className="col-lg-3 col-6">
             <div className="small-box bg-warning">
               <div className="inner">
-                <h3>44</h3>
-                <p>User Registrations</p>
+                <h3>{EmpCount}</h3>
+                <p>Employees</p>
               </div>
               <div className="icon">
                 <i className="ion ion-person-add" />
               </div>
-              <a href="#" className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></a>
+              <a onClick={()=>{navigate("/employees")}} style={{cursor: 'pointer'}} className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></a>
             </div>
           </div>
           <div className="col-lg-3 col-6">
