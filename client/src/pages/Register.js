@@ -19,6 +19,7 @@ function Register() {
     city:"",
     state: "",
     pincode: "",
+    password: ""
   });
   const [firstNameMsg, setFirstNameMsg] = useState("");
   const [lastNameMsg, setLastNameMsg] = useState("");
@@ -30,7 +31,8 @@ function Register() {
   const [cityMsg, setCityMsg] = useState("");
   const [stateMsg, setStateMsg] = useState("");
   const [pincodeMsg, setPincodeMsg] = useState("");
- 
+  const [passwordMsg, setPasswordMsg] = useState("");
+
 
   const handleInputs = (e) => {
     let name = e.target.name;
@@ -52,6 +54,7 @@ function Register() {
       city,
       state,
       pincode,
+      password
     } = user;
 
     if (firstName === "") {
@@ -84,6 +87,14 @@ function Register() {
       setPincodeMsg("Enter valid pincode!");
       console.log("Valid pincode is required!");
     }
+    else if (password === "") {
+      setPasswordMsg("Password is required!");
+      console.log("Password is required!");
+    }
+    else if(password.length<6){
+      setPasswordMsg("Password must be atleast 6 characters!");
+      console.log("Password must be atleast 6 characters!");
+    }
    else {
           console.log("user",user)
           Axios.post(`http://localhost:3001/employees`, {
@@ -97,11 +108,12 @@ function Register() {
             city,  
             state,
             pincode,
+            password,
             free:"1"
           }).then((res) => {
             console.log(res);
               alert("We received your details. We will contact you soon!");
-              setUser({firstName:"",lastName:"",gender:"",profession:"",email:"",phone:"",address:"",city:"",state:"",pincode:""});
+              setUser({firstName:"",lastName:"",gender:"",profession:"",email:"",phone:"",address:"",city:"",state:"",pincode:"",password:""});
               navigate("/");
           });
         } 
@@ -334,6 +346,11 @@ function Register() {
                     </select>
                   <p style={{ color: "red" }}>{stateMsg}</p>
                 </div>
+
+
+
+
+
                 <div style={{ "margin-left": "10px" }} class="mb-3">
                   <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}}  for="exampleInputEmail1" class="form-label">
                     Pincode<p style={{color:"red"}}>*</p>
@@ -355,6 +372,51 @@ function Register() {
                   <p style={{ color: "red" }}>{pincodeMsg}</p>
                 </div>
               </div>
+
+
+
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <div style={{ "margin-right": "10px" }} class="mb-3">
+                  <label  style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}} for="exampleInputEmail1" class="form-label">
+                    Password<p style={{color:"red"}}>*</p>
+                  </label>
+                  <input
+                    type="password"
+                    value={user.password}
+                    name="password"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="******"
+                    onChange={(e) => {
+                      setPasswordMsg("");
+                      handleInputs(e);
+                    }}
+                  />
+                  <p style={{ color: "red" }}>{passwordMsg}</p>
+                </div>
+                {/* <div style={{ "margin-left": "10px" }} class="mb-3">
+                  <label style={{display: "flex",flexDirection:"row",justifyContent:"center",marginBottom:"0px"}}  for="exampleInputEmail1" class="form-label">
+                    Confirm password<p style={{color:"red"}}>*</p>
+                  </label>
+                  <input
+                    type="password"
+                    value={user.city}
+                    name="city"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="******"
+                    onChange={(e) => {
+                      setCityMsg("");
+                      handleInputs(e);
+                    }}
+                  />
+                  <p style={{ color: "red" }}>{cityMsg}</p>
+                </div> */}
+              </div>
+
+
               <button type="submit" class="btn btn-primary">
                 Submit
               </button>

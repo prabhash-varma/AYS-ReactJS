@@ -19,7 +19,7 @@ function Orders() {
 
   const getorderdetails = async () => {
     const res = await Axios.get(
-      `http://localhost:3001/orders?uemail:${userdetails.email}`
+      `http://localhost:3001/orders?uemail=${userdetails.email}`
     );
     setorderitems(res.data);
     setOrderslist([]);

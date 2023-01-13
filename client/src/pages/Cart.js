@@ -96,7 +96,7 @@ function Cart() {
     find()
     setCartItems([]);
       alert("Ordered Successfully");
-      navigate("/ays/orders")
+      navigate("/ays/home")
     }
   }
   // useEffect(()=>{

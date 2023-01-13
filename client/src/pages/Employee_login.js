@@ -5,6 +5,8 @@ import MainNav from "../components/MainNav";
 import {store}from "../App.js" 
 import {toast} from 'react-toastify'
 import Axios from "axios";
+import { useDispatch } from "react-redux";
+import {login} from '../Redux/userSlice.js'
 
 function Employee_login() {
   const navigate = useNavigate();
@@ -17,6 +19,9 @@ function Employee_login() {
   const {empdetails,setempDetails}=useContext(store);
   const [passwordType, setPasswordType] = useState("password");
  
+
+  const dispatch = useDispatch();
+
   const togglePassword = () => {
     if (passwordType === "password") {
       setPasswordType("text");
@@ -39,11 +44,22 @@ function Employee_login() {
     } 
     else {
       Axios.get(
-        `http://localhost:3001/employees?email=${email}&password=${password}`
+        `http://localhost:3001/employees?email=${email}`
       ).then((res) => {
         console.log("emp details is :",res.data)
         if (res.data.length > 0) {
           setempDetails(res.data[0])
+          dispatch(login({
+            email:res.data[0].email,
+            firstName:res.data[0].firstName,
+            lastName:res.data[0].lastName,
+            phone:res.data[0].phone,
+            address:res.data[0].address,
+            city:res.data[0].city,
+            state:res.data[0].state,
+            pincode:res.data[0].pincode,
+            id:res.data[0].id
+          }))
           alert("Login successful!");
           navigate("/Employee_home");
         } else {

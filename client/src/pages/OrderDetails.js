@@ -32,7 +32,7 @@ function OrderDetails() {
           <button type="button" class="btn btn-success" onClick={()=>{ navigate('/ays/contactus')}} style={{marginTop:"20px"}}>Need Help?</button>
          </div>
          <div >
-          <button type="button" class="btn btn-danger" style={{marginTop:"20px"}}>Cancel Order</button>
+          {/* <button type="button" class="btn btn-danger" style={{marginTop:"20px"}}>Cancel Order</button> */}
          </div>
        </div>
        </div>

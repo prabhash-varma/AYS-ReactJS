@@ -4,18 +4,21 @@ import EmpNav from "../components/EmpNav.js";
 import ProfileComp from "../components/ProfileComp.js";
 import {store} from '../App.js'
 import Axios from 'axios'
-
+import { selectUser } from '../Redux/userSlice.js';
+import {useSelector } from 'react-redux'
 
 function Empprofile() {
 
     const {empdetails, setempDetails} = useContext(store);
 
+    const empuser = useSelector(selectUser);
+    console.log("empuser is :",empuser)
 
   return (
     <div>
         <EmpNav />
       <p style={{marginTop:"70px"}}></p>
-      <ProfileComp firstName={empdetails.firstName} lastName={empdetails.lastName} email={empdetails.email} phone={empdetails.phone} address={empdetails.address} city={empdetails.city} state={empdetails.state} pincode={empdetails.pincode}/>
+      <ProfileComp firstName={empuser.firstName} lastName={empuser.lastName} email={empuser.email} phone={empuser.phone} address={empuser.address} city={empuser.city} state={empuser.state} pincode={empuser.pincode}/>
       
     </div>
   )
